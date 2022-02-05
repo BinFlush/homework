@@ -27,13 +27,13 @@
 
 \usepackage{titlesec}
 \titleformat{\section}
-{\Large \bfseries}
+{\LARGE \bfseries}
 {\thesection}
 {1em}
 {}
 
 \titleformat{\subsection}
-{\large}
+{\large \bfseries}
 {\thesubsection}
 {0.5em}
 {}
@@ -96,24 +96,30 @@
 
 
 \section{Indledning} %ca en halv side til en side. I egne ord, hvorfor dette er interessant. God ide at slutte af med problemformuleringen, "Og her vil jeg..."
-Matematik kan synes firkantet og rigidt, hvor abstrakte forhold opskrives i eksakte formler, og hvor der ikke er plads til kreativitet. 
+Matematik kan til tider synes firkantet og rigidt, hvor abstrakte forhold opskrives i eksakte formler, og hvor der ikke er plads til kreativitet. 
 Dykker man dybere ind i faget vil man dog opdage, at dette ikke er tilfældet, og at der er mange situationer, hvor man gør kreativt brug af relativt ueksakte værktøjer. Et af disse er såkaldte Taylorpolynomier.
 
 
-I matematikkens verden findes der alverdens slags funktioner, hvor nogle er mere medgørlige end andre. Nutidens computerteknik kræver eksempelvis hurtig og praktisk behandling af alle disse formler, og den forbindelse indtræder Taylorpolynomier ofte.\\
+I matematikkens verden findes der alverdens slags funktioner, hvor nogle er mere medgørlige end andre. Nutidens computerteknik kræver desuden hurtig og praktisk behandling af alle disse formler, og den forbindelse indtræder Taylorpolynomier ofte.\\
 \\
-Jeg vil i denne opgave beskrive den historiske baggrund for Taylorrækken. Jeg vil bevise formlen for Taylorrækken, undersøge dens restled, samt undersøge hvilke praktiske anvendelser Taylorpolynomier har i dag.
+Taylorpolynomier er ingen ny opfindelse. De dukkede for første gang op i 17-18. århundrede, men hvordan blev de opdaget? Der er ingen tvivl om at de har haft stor indflydelse på måden som matematik bliver behandlet i dag, men hvordan ved man om de er korrekte, i hvilken grad ved man det, og hvorfor er det overhoved relevant i dag?\\
+\\
+Denne opgave vil beskrive den historiske baggrund for Taylorrækken, bevise formlen for Taylorrækken, undersøge dens restled, samt undersøge hvilke praktiske anvendelser Taylorpolynomier har i dag.
 
 \section{Taylorrækkens historie} % Redegørelse Egne ord. Ikke inddrage citater (fordi så bliver det analyserende).
 Matematikeren Brook Taylor (1685 - 1731) er navnefader til hvad vi i dag kalder Taylorpolynomier, efter at han i 1715 offentliggjorde en generel formel for principperne.
-Taylors formel ser således ud i moderne form:\footcite[s. 247]{roy_2021}
+Taylors formel ser således ud i sin moderne form:\footcite[s. 247]{roy_2021}
 \begin{equation}
    f(x)=f(a)+f(x-a)\frac{f'(a)}{1!}+(x-a)^2\frac{f''(a)}{2!}+\cdots. 
 \end{equation}
+Dette kan naturligvis også skrives som:
+\begin{equation}
+    \sum_{n=0}^{\infty}\frac{f^{(n)}(a)}{n!}(x-a)^n.
+\end{equation}
 Men Taylor var dog ikke den første der tænkte disse tanker.
-\subsection{Newton}
+\subsection{Newton, Gregory og Bernoulli}
 
-Isaac Newton (1643 - 1727) opdagede disse samme principper femogtyve år tidligere end Taylor, uden at det blev udgivet.\footcite{roy_2021}\\
+Isaac Newton (1643 - 1727) opdagede disse samme principper femogtyve år tidligere end Taylor, uden at det blev udgivet. Newton havde i det hele taget svært ved at udgive sine findinger før han blev kendt i videre kredse, hvilket voldte ham store problemer i at blive anerkendt for sine opdagelser. \footcite{uendeligerækker}\\
 \\
 \\
 \\
