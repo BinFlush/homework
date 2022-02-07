@@ -15,6 +15,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{fancyhdr}
 \usepackage{pgfplots}
+\usepackage{csquotes}
 \newcommand\s{30} %samples i grafer. set til 1000, 80 for arbejde
 %\newcommand{\doubleunderline}{\underline{\underline{}}}
 \usepackage{lipsum}
@@ -49,7 +50,14 @@
     \import{./figures/}{#1.pdf_tex}
 }
 \renewcommand*\contentsname{Indholdsfortegnelse}
+\renewcommand{\figurename}{Figur}
 %bruka inkscapefílir end
+
+\makeatletter
+\patchcmd{\csq@bquote@i}{{#6}}{{\emph{#6}}}{}{}
+\makeatother
+
+
 
 %\usepackage[backend=biber,sorting=nty,style=verbose]{biblatex}
 \usepackage[backend=biber,sorting=nty, style=authoryear-ibid]{biblatex}
@@ -119,9 +127,25 @@ Dette kan naturligvis også skrives som:
 Men Taylor var dog ikke den første der tænkte disse tanker.
 \subsection{Newton, Gregory og Bernoulli}
 
-Isaac Newton (1643 - 1727) opdagede disse samme principper femogtyve år tidligere end Taylor, uden at det blev udgivet. Newton havde i det hele taget svært ved at udgive sine findelser før han blev kendt i videre kredse, hvilket til tider voldte ham problemer i at blive anerkendt for sine opdagelser. \footcite{uendeligerækker}\\
-Taylorpolynomier bygger på en indseelse, at der er en forbindelse mellem en funktions koefficienter og dens afledte. Denne indseelse viser Newton for første gang i hans \textit{Principia} (1687)
+Taylorpolynomier bygger på en indseelse, at der er en forbindelse mellem en funktions koefficienter og dens afledte. Denne indseelse viser Isaac Newton (1643 - 1727) for første gang i hans \textit{Principia} (1687), og få år senere giver han et egentligt eksempel af Taylors formel i sin \textit{De Quadratura Curvarum} (1691 - 92), som han aldrig færdiggjorde. Dele af denne tekst blev udgivet med titlen \textit{Tractatus de Quadratura Curvarum}, men Taylors formel blev desværre udladt.\footcite[s. 248]{roy_2021} Newton havde altså opdaget disse samme principper femogtyve år tidligere end Taylor, uden at de blev udgivet.\\
+\\
+Newton havde i det hele taget svært ved at udgive sine findelser før han blev kendt i videre kredse, hvilket til tider voldte ham problemer i at blive anerkendt for sine opdageser. \footcite[s. 116]{uendeligerækker}\\
+En af konsekvenserne af dette var den kendte kontroversi imellem Newton og Gottfried Wilhelb Leibniz (1646 - 1716), da de ifølge Mejlbo:
+\blockquote{blev indviklede i en ulykkelig strid om ophavsretten til differential- og integralregningen. Den gik værst  ud over Leibniz. Royal Society dømte ham - ganske uberettiget - for plagiat}.\footcite[s. 103]{uendeligerækker}\\
+En af Leibnitz' største fortalere i denne prioritetsstrid var Johann Bernoulli (1667 - 1748), som i slutningen af 1690'erne også havde udgivet en formel der lignede Taylors formel. Mejlbo skriver om Bernoulli at: \blockquote{\dots han havde et voldsomt temperament, så han overfusede Taylor med beskyldninger for plagiat.}\footcite[s. 111]{uendeligerækker}.\\
+\\
+Den tidligste opdager af Taylors formel var dog nok den Skotske matematiker James Gregory (1638 – 1675).\\
+\textcolor{red}{\textbf{Mere om Gregory}} 
 \section{Analyse} % Kød og kartofler. Brug modellen (introducere citatet, så kommer citatet, og så kommenterer man.
+\subsection{Pædagogisk gennemgang (arbejdstitel)}
+Man kan opnå en intuitiv forståelse for Taylorpolynomier med følgende fremgangsmåde:\\
+Vi ønsker at approksimere en given funktion fra punktet $x_0$. Den simpleste approksimation kunne være funktionens tangentligning i punktet $x_0$
+\begin{figure}
+     \includegraphics[width=\textwidth]{figures/ex-eksempel.png}
+     \caption{Første- anden- og tredjegrads Taylorpolynomium for $e^x$}
+     \label{fig:boat1}
+\end{figure}
+\subsection{Beviser for Taylorpolynomiet}
 \section{Diskussion/Vurdering} % Måske tage nogle fagpersoner med eller noget. Gerne selv tage stilling.
 \section{Konklusion} % samle problemformuleringens underspørgsmål. "jeg har. og så... jeg kan konkludere..."
 
