@@ -9,6 +9,7 @@
 %\usepackage{utopia}
 %\usepackage{newcomputermodern}
 \usepackage{lmodern}
+\usepackage{varwidth}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{mdframed}
@@ -16,6 +17,7 @@
 \usepackage{fancyhdr}
 \usepackage{pgfplots}
 \usepackage{csquotes}
+\usepackage{footnote}
 \newcommand\s{30} %samples i grafer. set til 1000, 80 for arbejde
 %\newcommand{\doubleunderline}{\underline{\underline{}}}
 \usepackage{lipsum}
@@ -25,7 +27,8 @@
 \usepackage{float}
 \usepackage{sidecap}
 %flyta myndir end
-
+\fboxrule=4pt
+\fboxsep=3pt
 \usepackage{titlesec}
 \titleformat{\section}
 {\LARGE \bfseries}
@@ -70,6 +73,7 @@
 %\fancyhead{}
 %\fancyfoot{}
 \begin{document}
+\begin{refsection}
 \begin{titlepage}
    \centering
     \vfill
@@ -115,8 +119,8 @@ Taylorpolynomier er ingen ny opfindelse. De dukkede for første gang op i 17-18.
 Denne opgave vil beskrive den historiske baggrund for Taylorrækken, bevise formlen for Taylorrækken, undersøge dens restled, samt undersøge hvilke praktiske anvendelser Taylorpolynomier har i dag.
 
 \section{Taylorrækkens historie} % Redegørelse Egne ord. Ikke inddrage citater (fordi så bliver det analyserende).
-Matematikeren Brook Taylor (1685 - 1731) er navnefader til hvad vi i dag kalder Taylorpolynomier, efter at han i 1715 offentliggjorde en generel formel for principperne.
-Taylors formel ser således ud i sin moderne form:\footcite[s. 247]{roy_2021}
+Matematikeren Brook Taylor (1685 - 1731) er navnefader til hvad vi i dag kalder Taylorpolynomier, efter at han i 1715 offentliggjorde en generel formel, der for samtidens matematikere var kendt som Proposition 7, Corollary 2 fra hans \textit{Methodus}.
+Taylors formel ser således ud i sin moderne form:\footcite[s. 247]{roy_2021}$^,$\footcite[s. 72]{feigenbaum_exact_sciences}
 \begin{equation*}
    f(x)=f(a)+f(x-a)\frac{f'(a)}{1!}+(x-a)^2\frac{f''(a)}{2!}+\cdots. 
 \end{equation*}
@@ -124,7 +128,7 @@ Dette kan naturligvis også skrives som:
 \begin{equation*}
     f(x)=\sum_{n=0}^{\infty}\frac{f^{(n)}(a)}{n!}(x-a)^n.
 \end{equation*}
-Men Taylor var dog ikke den første der tænkte disse tanker.
+Men Taylor var dog ikke den første der tænkte disse tanker. Man ved i dag, at der var mindst fem andre forløbere: James Gregory, Newton, Leibniz, Johann I. Bernoulli, og Abraham De Movre.\footcite{feigenbaum_exact_sciences}
 \subsection{Newton, Gregory og Bernoulli}
 
 Taylorpolynomier bygger på en indseelse, at der er en forbindelse mellem en funktions koefficienter og dens afledte. Denne indseelse viser Isaac Newton (1643 - 1727) for første gang i hans \textit{Principia} (1687), og få år senere giver han et egentligt eksempel af Taylors formel i sin \textit{De Quadratura Curvarum} (1691 - 92), som han aldrig færdiggjorde. Dele af denne tekst blev udgivet med titlen \textit{Tractatus de Quadratura Curvarum}, men Taylors formel blev desværre udladt.\footcite[s. 248]{roy_2021} Newton havde altså opdaget disse samme principper femogtyve år tidligere end Taylor, uden at de blev udgivet.\\
@@ -132,29 +136,98 @@ Taylorpolynomier bygger på en indseelse, at der er en forbindelse mellem en fun
 Newton havde i det hele taget svært ved at udgive sine findelser før han blev kendt i videre kredse, hvilket til tider voldte ham problemer i at blive anerkendt for sine opdageser. \footcite[s. 116]{uendeligerækker}\\
 En af konsekvenserne af dette var den kendte kontroversi imellem Newton og Gottfried Wilhelb Leibniz (1646 - 1716), da de ifølge Mejlbo:
 \blockquote{blev indviklede i en ulykkelig strid om ophavsretten til differential- og integralregningen. Den gik værst  ud over Leibniz. Royal Society dømte ham - ganske uberettiget - for plagiat}.\footcite[s. 103]{uendeligerækker}\\
-En af Leibnitz' største fortalere i denne prioritetsstrid var Johann Bernoulli (1667 - 1748), som i slutningen af 1690'erne også havde udgivet en formel der lignede Taylors formel. Mejlbo skriver om Bernoulli at: \blockquote{\dots han havde et voldsomt temperament, så han overfusede Taylor med beskyldninger for plagiat.}\footcite[s. 111]{uendeligerækker}.\\
+En af Leibnitz' største fortalere i denne prioritetsstrid var Johann Bernoulli (1667 - 1748), som i slutningen af 1690'erne også havde udgivet en formel der lignede Taylors formel. Mejlbo skriver om Bernoulli at: \blockquote{\dots han havde et voldsomt temperament, så han overfusede Taylor med beskyldninger for plagiat.}\footcite[s. 111]{uendeligerækker}. \textcolor{red}{mere om Bernoulli og Taylors rivalisering}\\
 \\
 Den tidligste opdager af Taylors formel var dog nok den Skotske matematiker James Gregory (1638 – 1675).\\
 \textcolor{red}{\textbf{Mere om Gregory}} 
+\newpage
 \section{Analyse} % Kød og kartofler. Brug modellen (introducere citatet, så kommer citatet, og så kommenterer man.
 \subsection{Pædagogisk gennemgang (\textcolor{red}{arbejdstitel})}
-Man kan opnå en intuitiv forståelse for Taylorpolynomier med følgende fremgangsmåde:\\
-Vi ønsker at approksimere en given funktion $f(x)$ fra x-værdien $x_0$. Den simpleste approksimation kunne være en konstant funktion, som deler værdi med $f(x)$ i vores udgangspunkt $\big(x_0,f(x_0)\big)$.
-\begin{figure}
+Man kan opnå en simpel intuitiv forståelse for Taylorpolynomier med følgende fremgangsmåde:\\
+Man ønsker at approksimere en given funktion $f(x)$ fra x-værdien $x_0$. I dette eksempel bruges funktionen $f(x)=e^x$, og $x_0=1$.\\
+\begin{figure}[h!]
      \includegraphics[width=\textwidth]{figures/ex-eksempel.png}
      \caption{Nulte- første- og andengrads Taylorpolynomium for $e^x$}
      \label{fig:boat1}
-\end{figure}
+\end{figure}\\
+Den simpleste approksimation kunne være en konstant funktion, som deler værdi med $f(x)$ på $x_0$ (\textit{Figur 1, grøn}).
+\[
+f(1)=e
+.\] 
+Dette er funktionens nultegrads Taylorpolynomium, som er en meget grov approksimation, da den er konstant. Den kan dog forbedres ved at tilføje den korrekte hældning på punktet. Dette genkendes som ligningen for tangenten til grafen for $f$ i $P\big(x_0,f(x_0)\big)$.\footcite[s. 24, frml. 130]{formelsamling}
+\[
+\begin{aligned}
+    y&=f'(x_0) \cdot (x-x_0)+f(x_0)\\
+    \Updownarrow\quad &=f(x_0)+f'(x_0) \cdot (x-x_0)
+\end{aligned}
+.\] 
+Den gældende funktion indsættes, og hermed findes funktionens førstegrads Taylorpolynomium  (\textit{Figur 1, blå}).\\
+\[
+\begin{aligned}
+    y&=e+e\cdot (x-1)
+\end{aligned}
+.\] 
+Nu er værdien samt hældningen på $x_0$ korrekt. For at forbedre approksimationen kan man tilføje den korrekte krumning. 
 \subsection{Beviser for Taylorpolynomiet}
+
+
+Der findes mange beviser for Taylors formel, men ingen af dem er helt ligefrem. De benytter altid et trick for at begynde beviset \footcite[A-44]{calculuswithanalyticgeometry}. I dette bevis begynder man med at introducere en hjælpefunktion $F(x)$ således at:
+\begin{equation}
+ \begin{aligned}
+     F(x)&=f(b)-f(x)-f(x)(b-x)-\frac{f''(x)}{2!}(b-x)^2\\
+         &- \cdots -\frac{f^{(n)}(x)}{n!}(b-x)^n-K(b-x)^{n-1}.
+\end{aligned}
+\end{equation}
+
+
+\begin{savenotes}
+\noindent%
+\begin{minipage}{0.6\textwidth}
+Konstanten $K$ vælges således at $f(a)=0$. Dette kan gøres eksplicit, ved at indsætte $x=a$ på højre side, og $F(x)=F(a)=0$ på venstre side af ligning (1), siden løse for $K$, men dette er ikke nødvendigt.\\
+Når man indsætter $x=b$ i ligning (1), er det tydeligt at  $F(b)=0$.\\
+Dette betyder at \textit{Rolles sætning}\footcite[s. 210]{calculuswithanalyticgeometry} gælder, således at:
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+\begin{center}
+\fbox{
+ \begin{varwidth}{0.7\textwidth}   
+     \begin{footnotesize}
+        \begin{center} 
+ \textbf{Rolles sætning:}\newline
+ Antag at $f$ er kontinuert og differentiabel i $[a,b]$. Hvis $f(a)=0=f(b)$, så findes der et tal $c$ i $(a,b)$ således at $f'(c)=0$.
+ \end{center}
+     \end{footnotesize}
+\end{varwidth}}
+\end{center}
+\end{minipage}
+\end{savenotes}
+
+
+
+\begin{equation}
+    F'(z)=0,
+\end{equation}
+for en værdi af $z$ hvor $(a<z<b)$
+\begin{equation}
+    \begin{aligned}
+        F'(x) &=(0) -f'(x)+f'(x)-f''(x)(b-x)\\
+              &+f''(x)(b-x)-\frac{1}{2!}f^{(3)}(x)(b-x)^2\\
+              &+\frac{1}{2!}f^{(3)}(x)(b-x)^2-\frac{1}{3!}f^{(4)}(x)(b-x)^3\\
+              &+\cdots + \frac{1}{(n-1)!}f^{(n)}(x)(b-x)^{n-1}-\frac{1}{n!}f^{(n+1)}(x)(b-x)^n\\
+              &+(n+1)K(b-x)^n
+    \end{aligned}
+\end{equation}
 \section{Diskussion/Vurdering} % Måske tage nogle fagpersoner med eller noget. Gerne selv tage stilling.
 \section{Konklusion} % samle problemformuleringens underspørgsmål. "jeg har. og så... jeg kan konkludere..."
-
+\newpage
 \section{Litteraturliste}
-%\nocite{*}
 \subsection{Referenceliste}
-\printbibliography
+\printbibliography[title=Cited]
+\end{refsection}
 \subsection{Litteraturliste}
+\nocite{*}
+\printbibliography
 %\printbibliography[keyword=online]
-Forsidebillede er skabt af undertegnede.
+Forsidebillede samt alle figurer er skabt af undertegnede.
 \end{document}
 
