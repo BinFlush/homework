@@ -169,11 +169,11 @@ Den gældende funktion indsættes, og hermed findes funktionens førstegrads Tay
 .\] 
 Nu er værdien samt hældningen på $x_0$ korrekt. For at forbedre approksimationen kan man tilføje den korrekte krumning. 
 \subsection{Bevis for Taylorpolynomiet}
-Vi har indtil videre set, hvordan en tangent og en parabel blev brugt som en polynomisk approksimation for en funktion $f(x)$. Vi kan generalisere denne approksimationsmetode tæt må $x=x_0$ med et  $n$-tegrads polynomium.\\
+Vi har indtil videre set, hvordan en tangent og en parabel blev brugt som en polynomisk approksimation for en funktion $f(x)$. Vi kan generalisere denne approksimationsmetode tæt på $x=x_0$ med et  $n$-tegrads polynomium.\\
 \[
 P_n(x)=c_0+c_1x+c_2x^2+ \cdots +c_nx^n
 \] 
-således at polynomiets værdi på $x_0$ stemmer overens med  $f(x_0)$. Det samme skal gælde for de  $n$ gange afledte funktioner, dvs:
+således at polynomiets værdi på $x_0$ stemmer overens med  $f(x_0)$. Det samme skal gælde for alle afledte, op til $n$ gange afledte funktioner, dvs:
  \begin{equation}\label{deafledtestemmer}
      \begin{aligned}
          P_n(x_0)&=f(x_0),\\
@@ -183,6 +183,22 @@ således at polynomiets værdi på $x_0$ stemmer overens med  $f(x_0)$. Det samm
          P^{(n)}_n(x_0)&=f^{(n)}(x_0).
      \end{aligned}
 \end{equation}
+Eftersom det er $x_0$ vi har interesse i, giver det mening at udtrykke  $P_n$ på formen:
+\begin{equation}\label{nybevis1}
+   P_n(x)=c_0+c_1(x-x_0)+c_2(x-x_0)^2+\cdots+c_n(x-x_0)^n 
+\end{equation}
+For at finde konstanterne $c_0, c_1 \cdots c_n$ på punktet $x_0$, kan vi ganske enkelt indsætte $x=x_0$ i $P_n(x), P'_n(x) \cdots P^{(n)}_n(x)$. Vi bruger desuden ligning (\ref{deafledtestemmer}) at forbinde konstanterne med $f(x_0)$\\
+%Når dette sættes ind i ligning (\ref{deafledtestemmer}), giver det:
+Den første konstant er åbenlys, når vi indsætter $x=x_0$ i ligning (\ref{nybevis1})
+ \begin{equation*}
+    c_0=P_n(x_0)=f(x_0)
+\end{equation*}
+Derefter observerer vi den afledte funktion: 
+\begin{equation}\label{førsteafledte}
+        P'_n(x)=c_1+2c_2(x-x_0)+3c_3(x-x_0)^2+\cdots+nc_n(x-x_0)^{n-1}\\
+\end{equation}
+Vi kan nu på samme måde indsætte $x=x_0$ i ligning (\ref{førsteafledte}), og igen jævnføre med ligning (\ref{deafledtestemmer}), for at konkludere at:
+
 \subsubsection{Sætning 1}
 Vi skal bevise at det $n $'te Taylorpolynomium $P_n$ med udviklingspunkt $a$ er givet ved:
 \begin{equation*}
