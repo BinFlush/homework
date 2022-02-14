@@ -11,6 +11,8 @@
 \usepackage{lmodern}
 \usepackage{varwidth}
 \usepackage{amsmath}
+\usepackage{amsthm}
+\renewcommand\qedsymbol{$\blacksquare$}
 \usepackage{amssymb}
 \usepackage{mdframed}
 \usepackage[T1]{fontenc}
@@ -122,11 +124,11 @@ Denne opgave vil beskrive den historiske baggrund for Taylorrækken, bevise form
 Matematikeren Brook Taylor (1685 - 1731) er navnefader til hvad vi i dag kalder Taylorpolynomier, efter at han i 1715 offentliggjorde en generel formel, der for samtidens matematikere var kendt som Proposition 7, Corollary 2 fra hans \textit{Methodus}.
 Taylors formel ser således ud i sin moderne form:\footcite[s. 247]{roy_2021}$^,$\footcite[s. 72]{feigenbaum_exact_sciences}
 \begin{equation*}
-   f(x)=f(a)+f(x-a)\frac{f'(a)}{1!}+(x-a)^2\frac{f''(a)}{2!}+\cdots. 
+   f(x)=f(x_0)+f(x-x_0)\frac{f'(x_0)}{1!}+(x-x_0)^2\frac{f''(x_0)}{2!}+\cdots. 
 \end{equation*}
 Dette kan naturligvis også skrives som:
 \begin{equation*}
-    f(x)=\sum_{n=0}^{\infty}\frac{f^{(n)}(a)}{n!}(x-a)^n.
+    f(x)=\sum_{n=0}^{\infty}\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n.
 \end{equation*}
 Men Taylor var dog ikke den første der tænkte disse tanker. Man ved i dag, at der var mindst fem andre forløbere: James Gregory, Newton, Leibniz, Johann I. Bernoulli, og Abraham De Movre.\footcite{feigenbaum_exact_sciences}
 \subsection{Newton, Gregory og Bernoulli}
@@ -167,8 +169,10 @@ Den gældende funktion indsættes, og hermed findes funktionens førstegrads Tay
     y&=e+e\cdot (x-1)
 \end{aligned}
 .\] 
-Nu er værdien samt hældningen på $x_0$ korrekt. For at forbedre approksimationen kan man tilføje den korrekte krumning. 
+Nu er værdien samt hældningen på $x_0$ korrekt. Dette er ikke en dårlig approksimation for værdier tæt på $x_0$ (se Figur 1.) For at forbedre approksimationen kan man tilføje den korrekte krumning. 
 \subsection{Bevis for Taylorpolynomiet}
+\begin{proof}[Bevis]
+    
 Vi har indtil videre set, hvordan en tangent og en parabel blev brugt som en polynomisk approksimation for en funktion $f(x)$. Vi kan generalisere denne approksimationsmetode tæt på $x=x_0$ med et  $n$-tegrads polynomium.\\
 \[
 P_n(x)=c_0+c_1x+c_2x^2+ \cdots +c_nx^n
@@ -209,10 +213,41 @@ Når vi indsætter $x=x_0$ i ligning (\ref{andenafledte}) sær vi at $2c_2 = P''
 \begin{equation*}
     c_2=\frac{1}{2}f''(x_0).
 \end{equation*}
-Nu begynder et mønster at vise sig.
-
-
-\subsubsection{Sætning 1}
+Nu begynder et mønster at vise sig. Eftersom de næste konstanter findes med gentagen differentiering af voksende potenser, vil konstanterne følge mønstret: 
+\begin{equation*}
+    \begin{array}{c c c}
+        3\cdot2\cdot1\cdot c_3=f'''(x_0),\quad &4\cdot3\cdot2\cdot1\cdot c_4=f^{(4)}(x_0),\quad&5\cdot4\cdot3\cdot2\cdot1\cdot c_5=f^{(5)}(x_0)\\
+        \Updownarrow&\Updownarrow&\Updownarrow\\
+        c_3=\frac{f'''(x_0)}{3!},&c_4=\frac{f^{(4)}(x_0)}{4!},&c_5=\frac{f^{(5)}(x_0)}{5!}.
+    \end{array}
+\end{equation*}
+Generelt, når vi indsætter $x=x_0$ i $P_n^{(k)}(x)$ ser vi at:
+\begin{equation*}
+    k!c_k=P_n^{(k)}(x_0)=f^{(k)}(x_0)
+\end{equation*}
+og derfor:
+\begin{equation}\label{konstantergenerelt}
+    \boxed{c_k=\frac{f^{(k)}(x_0)}{k!}}
+\end{equation}
+for $k=1,2,3,\cdots,n$. når vi husker at $0!=1$, og at den nulte afledte  $g^{(0)}$ af en funktion $g$ blot er selve funktionen $g$, indser vi at ligning (\ref{konstantergenerelt}) også gælder for $k=0$.\\
+Dette giver os følgende sætning:\\
+\\
+   \begin{savenotes}
+\begin{mdframed}
+Antag at $f(x)$ er $n$ gange differentiabel på $x=x_0$. Lad $P_n(x)$ være $n$-tegrads polynomiet
+\begin{equation}
+    \begin{aligned}
+        P_n(x)&=\sum_{k=0}^n\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k\\
+              &=f(x_0)+f'(x_0)(x-x_0)+\frac{f''(x_0)}{2!}(x-x_0)^2+\cdots+\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n.
+    \end{aligned}
+\end{equation}
+\renewcommand{\thempfootnote}{\arabic{footnote}} 
+Så vil værdierne af $P_n(x)$ og dets første $n$ afledte funktioner stemme overens med $f(x)$ og dets første $n$ afledte funktioner på punktet $x=x_0$.\stepcounter{footnote}\footcite[s. 647-648]{calculuswithanalyticgeometry}$^,$\stepcounter{footnote}\footcite[s.1-2]{alsholm2}%det er nødvendigt at lave stepcounter før hver fodnote i mdframe, for at manuelt enumerate fodnote, når der er flere fodnoter i boksen
+\end{mdframed}
+   \end{savenotes} 
+\end{proof}
+\subsubsection{Bevis for Taylors formel}
+$\xi$
 Vi skal bevise at det $n $'te Taylorpolynomium $P_n$ med udviklingspunkt $a$ er givet ved:
 \begin{equation*}
     \begin{aligned}
