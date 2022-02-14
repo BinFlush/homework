@@ -198,6 +198,19 @@ Derefter observerer vi den afledte funktion:
         P'_n(x)=c_1+2c_2(x-x_0)+3c_3(x-x_0)^2+\cdots+nc_n(x-x_0)^{n-1}\\
 \end{equation}
 Vi kan nu på samme måde indsætte $x=x_0$ i ligning (\ref{førsteafledte}), og igen jævnføre med ligning (\ref{deafledtestemmer}), for at konkludere at:
+\begin{equation*}
+    c_1=P'_n(x_0)=f'(x_0)
+\end{equation*}
+Vi fortsætter samme fremgangsmåde, og observerer nu $P''_n(x)$.
+\begin{equation}\label{andenafledte}
+    P''_n(x)=2c_2+ 3\cdot2c_3(x-x_0)+\cdots+n(n-1)c_n(x-x_0)^{n-2}
+\end{equation}
+Når vi indsætter $x=x_0$ i ligning (\ref{andenafledte}) sær vi at $2c_2 = P''_n(x_0)=f''(x_0)$, hvilket betyder at:
+\begin{equation*}
+    c_2=\frac{1}{2}f''(x_0).
+\end{equation*}
+Nu begynder et mønster at vise sig.
+
 
 \subsubsection{Sætning 1}
 Vi skal bevise at det $n $'te Taylorpolynomium $P_n$ med udviklingspunkt $a$ er givet ved:
