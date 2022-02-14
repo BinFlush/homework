@@ -247,7 +247,6 @@ Så vil værdierne af $P_n(x)$ og dets første $n$ afledte funktioner stemme ove
    \end{savenotes} 
 \end{proof}
 \subsubsection{Bevis for Taylors formel}
-$\xi$
 Vi skal bevise at det $n $'te Taylorpolynomium $P_n$ med udviklingspunkt $a$ er givet ved:
 \begin{equation*}
     \begin{aligned}
@@ -284,7 +283,7 @@ Dette betyder at \textit{Rolles sætning}\footcite[s. 210]{calculuswithanalyticg
      \begin{footnotesize}
         \begin{center} 
  \textbf{Rolles sætning:}\newline
- Antag at $f$ er kontinuert og differentiabel i $[a,b]$. Hvis $f(a)=0=f(b)$, så findes der et tal $c$ i $(a,b)$ således at $f'(c)=0$.
+ Antag at $f$ er kontinuert og differentiabel i $[a,b]$. Hvis $f(a)=0=f(b)$, så findes der et tal $c$ i $]a,b[$ således at $f'(c)=0$.
  \end{center}
      \end{footnotesize}
 \end{varwidth}}
@@ -295,10 +294,10 @@ Dette betyder at \textit{Rolles sætning}\footcite[s. 210]{calculuswithanalyticg
 
 
 \begin{equation}\label{bevisrest2}
-    F'(z)=0,
+    F'(\xi)=0,
 \end{equation}
-for en værdi af $z$ hvor $(a<z<b)$.\\
-Hvis man differentierer ligning (\ref{bevisrest1}), får man:
+for en værdi af $\xi$ hvor $(a<\xi<b)$.\\
+Hvis man nu differentierer ligning (\ref{bevisrest1}), får man:
 \begin{equation*}
     \begin{aligned}
         F'(x) &=(0) -f'(x)+f'(x)-f''(x)(b-x)\\
@@ -308,12 +307,16 @@ Hvis man differentierer ligning (\ref{bevisrest1}), får man:
               &+(n+1)K(b-x)^n
     \end{aligned}
 \end{equation*}
-Ved tæt inspektion kan man indse, at alle led, pånær de sidste to, går ud med hinanden. Dette kollapser altså til:
+Ved tæt inspektion kan man se, at alle led, pånær de sidste to, går ud med hinanden. Dette kollapser altså til:
 \begin{equation}\label{bevisrest3}
     F'(x)=(n+1)K(b-x)^n-\frac{f^{(n+1)}(x)}{n!}(b-x)^n.
 \end{equation}
-Derfor følger, at når man indsætter ligning (\ref{bevisrest3}) i ligning (\ref{bevisrest2}), får man:
----
+Derfor følger, at når man indsætter ligning (\ref{bevisrest2}) i ligning (\ref{bevisrest3}), får man:
+    \begin{alignat*}{4}
+       && 0&=(n+1)K(b-\xi)^n-\frac{f^{(n+1)}(\xi)}{n!}(b-\xi)^n\\
+        \Leftrightarrow&&  0&=(n+1)K-\frac{f^{(n+1)}(\xi)}{n!}\\
+        \Leftrightarrow&&  K&=\frac{f^{(n+1)}(\xi)}{(n+1)!}
+    \end{alignat*}
 \section{Diskussion/Vurdering} % Måske tage nogle fagpersoner med eller noget. Gerne selv tage stilling.
 \section{Konklusion} % samle problemformuleringens underspørgsmål. "jeg har. og så... jeg kan konkludere..."
 \newpage
