@@ -150,9 +150,9 @@ Man ønsker at approksimere en given funktion $f(x)$ fra x-værdien $x_0$. I det
 \begin{figure}[h!]
      \includegraphics[width=\textwidth]{figures/ex-eksempel.png}
      \caption{Nulte- første- og andengrads Taylorpolynomium for $e^x$}
-     \label{fig:boat1}
+     \label{fig:ex-012tpol}
 \end{figure}\\
-Den simpleste approksimation kunne være en konstant funktion, som deler værdi med $f(x)$ på $x_0$ (\textit{Figur 1, grøn}).
+Den simpleste approksimation kunne være en konstant funktion, som deler værdi med $f(x)$ på $x_0$ (\textit{Figur \ref{fig:ex-012tpol}, grøn}).
 \[
 f(1)=e
 .\] 
@@ -235,7 +235,7 @@ Dette giver os følgende sætning:\\
    \begin{savenotes}
 \begin{mdframed}
 Antag at $f(x)$ er $n$ gange differentiabel på $x=x_0$. Lad $P_n(x)$ være $n$-tegrads polynomiet
-\begin{equation}
+\begin{equation}\label{taylorpolynomier}
     \begin{aligned}
         P_n(x)&=\sum_{k=0}^n\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k\\
               &=f(x_0)+f'(x_0)(x-x_0)+\frac{f''(x_0)}{2!}(x-x_0)^2+\cdots+\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n.
@@ -338,7 +338,46 @@ Derfor følger, at når man indsætter ligning (\ref{bevisrest2}) i ligning (\re
      \begin{equation*}
          R_n(x)=\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-a)^{(n+1)}
      \end{equation*}
-\subsection{Konkrete eksempler} % Måske tage nogle fagpersoner med eller noget. Gerne selv tage stilling.
+\subsection{Konkrete eksempler på fejl} % Måske tage nogle fagpersoner med eller noget. Gerne selv tage stilling.
+Overvej for eksempel en beregning hvor en cosinusfunktion indgår. $f(x)=\cos(x)$ Vi kan analysere størrelsen af den fejl der opstår ved at approksimere den med Taylorpolynomier af $n$'te grad med udviklingspunkt $x_0=0$.\\
+Først undersøger vi et simpelt andengradstaylorpolynomium uden restled med hjælp af ligning (\ref{taylorpolynomier}):\\
+ \begin{equation*}
+    \begin{aligned}
+        P_2(x)&=f(x_0)+f'(x_0)(x-x_0)+\frac{f''(x_0)}{2!}(x-x_0)^2\\
+        &=\cos(0)-\sin(0)(x-0)-\frac{\cos(0)}{2!}(x-0)^2\\
+        &=1-\frac{x^2}{2}
+    \end{aligned}
+\end{equation*}
+Det kan synes utroligt at man kan approksimere en cosinusfunktion med:
+\begin{equation*}\label{cosiunsanden}
+    \cos(\theta)\approx 1-\frac{\theta^2}{2},
+\end{equation*}
+og hvis man ikke kendte til Taylorpolynomier, ville det nok virke en smule arbitrert\footcite{3blue1browntaylor}, men hvor nøjagtigt er det?\\
+Vi kan begynde med at tegne approksimationen på en graf:
+\begin{figure}[h!]
+     \includegraphics[width=\textwidth]{figures/cosinuszoom.png}
+     \caption{Andengradstaylorpolynomium for $\cos(\theta)$}
+     \label{fig:cosinusanden}
+\end{figure}\\
+Det er tydeligt på Figur \ref{fig:cosinusanden}. at denne approksimation er god for små værdier af $\theta$. Lad os undersøge hvor korrekt den er på $\theta=\frac{1}{8}\pi$
+\begin{equation*}
+    P_2\left(\frac{\pi}{8}\right)=0{,}9228937
+\end{equation*}
+\[
+n=2, a=0, x=\frac{\pi}{8}, \quad a<\xi<x
+.\] 
+Vi kan benytte os af Taylors formel med restled, hvor $n=2$, fordi det er et andengradstaylorpolynomium.  $a=0$, fordi vores udviklingspunkt er 0,  $x=\frac{\pi}{8}$, fordi det er punktet som vi approksimerer, og ifølge Lagrangeformen for restled skal $\xi$ ligge i intervallet $[a;x]$:
+\begin{equation*}
+    \begin{aligned}
+    f(x)&=f(a)+f'(a)(x-a)+\frac{f''(a)}{2!}(x-a)^2+\frac{f'''(\xi)}{3!}(x-a)^3\\
+    f\left(\frac{\pi}{8}\right)&=f(0)+f'(0)(x-0)+\frac{f''(0)}{2!}(x-0)^2+\frac{f'''(\xi)}{3!}(x-0)^3\\
+    f\left(\frac{\pi}{8}\right)&=f(0)+f'(0)\left(\frac{\pi}{8}\right)+\frac{f''(0)}{2!}\left(\frac{\pi}{8}\right)^2+\frac{f'''(\xi)}{3!}\left(\frac{\pi}{8}\right)^3\\
+    f\left(\frac{\pi}{8}\right)&=1-\frac{1}{2!}\left(\frac{\pi}{8}\right)^2+\frac{\sin(\xi)}{3!}\left(\frac{\pi}{8}\right)^3\\
+%        \cos\left(\frac{\pi}{8}\right)&\approx 0{,}9228937 - \frac{f'''(\xi)}{3!}(x-a)^3\\
+%                                       &\approx 0{,}9228937 - \frac{\sin(\xi)}{6}(x-a)^3\\
+    \end{aligned}
+\end{equation*}
+
 \section{Konklusion} % samle problemformuleringens underspørgsmål. "jeg har. og så... jeg kan konkludere..."
 \newpage
 \section{Litteraturliste}
