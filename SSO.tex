@@ -86,7 +86,7 @@
     \large
     SSO - Matematik A\\
     \vspace{0.25cm}
-    Februar 2022
+    Jákup Lützen - Februar 2022
     }    
     \vfill
 %    \includegraphics[width=\textwidth]{figures/forside3edit2.png} % also works with logo.pdf
@@ -246,22 +246,19 @@ Så vil værdierne af $P_n(x)$ og dets første $n$ afledte funktioner stemme ove
 \end{mdframed}
    \end{savenotes} 
 \end{proof}
-\subsubsection{Bevis for Taylors formel}
-Vi skal bevise at det $n $'te Taylorpolynomium $P_n$ med udviklingspunkt $a$ er givet ved:
-\begin{equation*}
+\subsection{Taylorpolynomiers restled}
+Når man approksimerer et funktion med dens Taylorpolynomium vil der altid opstå en fejl (udenfor udviklingspunktet $x_0$).\footcite[s. 4]{alsholm1}Til dette har man Taylors formel.\\
+Taylors formel giver os muligheden for at approksimere fejlen, og derved vurdere hvilken grad Taylorpolynomiet skal føres til, for at fejlen holder sig indenfor en vis margin. Den giver os også mulighed for at endelig sætte lighedstegn funktionen og Taylors formel, dog med en ekstra ubekendt ($\xi$).\\
+Tætheden som polynomiet $P_n(x)$ approksimerer funktionen $f(x)$ med, måles med differencen:\footcite[s. 650]{calculuswithanalyticgeometry}
+\begin{equation}\label{restled}
     \begin{aligned}
-        P_n= &f(a)+f'(a)(x-a)+\frac{1}{2}f''(a)(x-a)^2\\
-             &+\frac{1}{3}f'''(a)(x-a)^3+\cdots+\frac{1}{n!}f^{(n)}(a)(x-a)^n
+        R_n(x)&=f(x)-P_n(x),\\
+        \Leftrightarrow \quad f(x)&=P_n(x)+R_n(x).
     \end{aligned}
-\end{equation*}
-\subsubsection{Bevis.}
-Ethvert polynomium $P_n$ af højst $n$-te grad kan skrives således:
- \begin{equation}\label{bevis1}
-    P_n(x)=a_0+a_1(x-a)+a_2(x-a)^2+a_3(x-a)^3+\cdots+a_n(x-a)^n
 \end{equation}
-Hvis man indsætter $x=a$ i ligning (\ref{bevis1})
+\subsection{Bevis for Taylors formel}
 
-Der findes mange beviser for Taylors formel, men ingen af dem er helt ligefrem. De benytter altid et trick for at begynde beviset \footcite[A-44]{calculuswithanalyticgeometry}. I dette bevis begynder man med at introducere en hjælpefunktion $F(x)$ således at:
+\begin{proof}[Bevis]Der findes mange beviser for Taylors formel, men ingen af dem er helt ligefrem. De benytter altid et trick for at begynde beviset \footcite[A-44]{calculuswithanalyticgeometry}. Her gennemgåes udtrykket for $R_n(x)$, der kaldes \textit{Lagrange formen} for restleddet, da den blev opdaget af Joseph Louis Lagrange (1736-1813). I dette bevis begynder man med at introducere en hjælpefunktion $F(x)$ således at:
 \begin{equation}\label{bevisrest1}
  \begin{aligned}
      F(x)&=f(b)-f(x)-f(x)(b-x)-\frac{f''(x)}{2!}(b-x)^2\\
@@ -274,7 +271,7 @@ Der findes mange beviser for Taylors formel, men ingen af dem er helt ligefrem. 
 \begin{minipage}{0.6\textwidth}
 Konstanten $K$ vælges således at $f(a)=0$. Dette kan gøres eksplicit, ved at indsætte $x=a$ på højre side, og $F(x)=F(a)=0$ på venstre side af ligning (\ref{bevisrest1}), siden løse for $K$, men dette er ikke nødvendigt.\\
 Når man indsætter $x=b$ i ligning (\ref{bevisrest1}), er det tydeligt at  $F(b)=0$.\\
-Dette betyder at \textit{Rolles sætning}\footcite[s. 210]{calculuswithanalyticgeometry} gælder, således at:
+Dette betyder at \textit{Rolles sætning} gælder, således at:
 \end{minipage}
 \begin{minipage}{0.4\textwidth}
 \begin{center}
@@ -282,7 +279,7 @@ Dette betyder at \textit{Rolles sætning}\footcite[s. 210]{calculuswithanalyticg
  \begin{varwidth}{0.7\textwidth}   
      \begin{footnotesize}
         \begin{center} 
- \textbf{Rolles sætning:}\newline
+ \renewcommand{\thempfootnote}{\arabic{footnote}} \textbf{Rolles sætning:\stepcounter{footnote}\footcite[s. 210]{calculuswithanalyticgeometry}}\newline
  Antag at $f$ er kontinuert og differentiabel i $[a,b]$. Hvis $f(a)=0=f(b)$, så findes der et tal $c$ i $]a,b[$ således at $f'(c)=0$.
  \end{center}
      \end{footnotesize}
@@ -312,12 +309,36 @@ Ved tæt inspektion kan man se, at alle led, pånær de sidste to, går ud med h
     F'(x)=(n+1)K(b-x)^n-\frac{f^{(n+1)}(x)}{n!}(b-x)^n.
 \end{equation}
 Derfor følger, at når man indsætter ligning (\ref{bevisrest2}) i ligning (\ref{bevisrest3}), får man:
-    \begin{alignat*}{4}
-       && 0&=(n+1)K(b-\xi)^n-\frac{f^{(n+1)}(\xi)}{n!}(b-\xi)^n\\
-        \Leftrightarrow&&  0&=(n+1)K-\frac{f^{(n+1)}(\xi)}{n!}\\
-        \Leftrightarrow&&  K&=\frac{f^{(n+1)}(\xi)}{(n+1)!}
-    \end{alignat*}
-\section{Diskussion/Vurdering} % Måske tage nogle fagpersoner med eller noget. Gerne selv tage stilling.
+    \begin{alignat}{4}
+       && 0&=(n+1)K(b-\xi)^n-\frac{f^{(n+1)}(\xi)}{n!}(b-\xi)^n\nonumber\\
+        \Leftrightarrow&&  0&=(n+1)K-\frac{f^{(n+1)}(\xi)}{n!}\nonumber\\
+        \Leftrightarrow&&  K&=\frac{f^{(n+1)}(\xi)}{(n+1)!}\label{kværdi}
+    \end{alignat}
+    Vi kan nu vende tilbage til ligning (\ref{bevisrest1}), hvor vi indsætter $x=a,f(x)=0$ samt værdien for  $K$ som vi lige har fundet i ligning (\ref{kværdi}). Dette giver:
+    \begin{equation*}
+        \begin{aligned}
+         0=&f(b)-f(a)-f'(a)(b-a)-\frac{f''(a)}{2!}(b-a)^2\\
+         &-\cdots-\frac{f^{(n)}(a)}{n!}(b-a)^n-\frac{f^{(n+1)}(\xi)}{(n+1!)}(b-a)^{(n+1)}\\
+         \end{aligned}
+     \end{equation*}
+     Som endelig kan manipuleres til at give ligning (\ref{teorem2}) følgende Teorem:
+     \begin{mdframed}
+     Taylors formel: Lad $f$ være $(n+1)$ gange differentiabel i et interval der indeholder punkterne  $a$ og $b$. Så er $f(b)$ :
+     \begin{equation}\label{teorem2}
+         \begin{aligned}
+            f(b)=&f(a)+f'(a)(b-a)+\frac{f''(a)}{2!}(b-a)^2+\frac{f^{(3)}(a)}{3!}(b-a)^3\\
+                 &+\cdots+\frac{f^{(n)}(a)}{n!}(b-a)^n+\frac{f^{(n+1)}(\xi)}{(n+1)!}(b-a)^{(n+1)}
+        \end{aligned}
+        \end{equation}
+        for et tal $\xi$ mellem $a$ og $b$
+     \end{mdframed}
+     \end{proof}
+ Det er muligt at generalisere ligning (\ref{teorem2}) ved at indsætte $b=x$, og således får vi det n\textbf{tegrads Taylorformel med restled på}  $x=a$:\\
+     Vi genkender alle de første $n$ led på højre side af denne ligning som Taylorpolynomiet $P_n(x)$, sammenligner med ligning (\ref{restled}), og får derfor endelig formlen for restleddet:
+     \begin{equation*}
+         R_n(x)=\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-a)^{(n+1)}
+     \end{equation*}
+\subsection{Konkrete eksempler} % Måske tage nogle fagpersoner med eller noget. Gerne selv tage stilling.
 \section{Konklusion} % samle problemformuleringens underspørgsmål. "jeg har. og så... jeg kan konkludere..."
 \newpage
 \section{Litteraturliste}
