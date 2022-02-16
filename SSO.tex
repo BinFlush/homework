@@ -3,6 +3,7 @@
 %\renewcommand{\baselinestretch}{1.5}
 \usepackage[margin=3cm]{geometry}
 \usepackage{setspace}
+\usepackage[english,danish]{babel}
 %\onehalfspacing
 \setstretch{1.2}
 %\usepackage{mathptmx}% Times Roman font
@@ -54,7 +55,7 @@
     \def\svgwidth{6.00cm}
     \import{./figures/}{#1.pdf_tex}
 }
-\renewcommand*\contentsname{Indholdsfortegnelse}
+%\renewcommand*\contentsname{Indholdsfortegnelse}
 \renewcommand{\figurename}{Figur}
 %bruka inkscapefílir end
 
@@ -75,6 +76,7 @@
 %\fancyhead{}
 %\fancyfoot{}
 \begin{document}
+\selectlanguage{danish}
 \begin{refsection}
 \begin{titlepage}
    \centering
@@ -366,18 +368,33 @@ Det er tydeligt på Figur \ref{fig:cosinusanden}. at denne approksimation er god
 \[
 n=2, a=0, x=\frac{\pi}{8}, \quad a<\xi<x
 .\] 
-Vi kan benytte os af Taylors formel med restled, hvor $n=2$, fordi det er et andengradstaylorpolynomium.  $a=0$, fordi vores udviklingspunkt er 0,  $x=\frac{\pi}{8}$, fordi det er punktet som vi approksimerer, og ifølge Lagrangeformen for restled skal $\xi$ ligge i intervallet $[a;x]$:
+Vi kan benytte os af Taylors formel med restled, hvor $n=2$, fordi det er et andengradstaylorpolynomium.  $a=0$, fordi vores udviklingspunkt er 0,  $x=\frac{\pi}{8}$, fordi det er punktet som vi approksimerer, og ifølge Lagrangeformen for restled skal $\xi$ ligge i intervallet $]a;x[$:
 \begin{equation*}
     \begin{aligned}
     f(x)&=f(a)+f'(a)(x-a)+\frac{f''(a)}{2!}(x-a)^2+\frac{f'''(\xi)}{3!}(x-a)^3\\
     f\left(\frac{\pi}{8}\right)&=f(0)+f'(0)(x-0)+\frac{f''(0)}{2!}(x-0)^2+\frac{f'''(\xi)}{3!}(x-0)^3\\
     f\left(\frac{\pi}{8}\right)&=f(0)+f'(0)\left(\frac{\pi}{8}\right)+\frac{f''(0)}{2!}\left(\frac{\pi}{8}\right)^2+\frac{f'''(\xi)}{3!}\left(\frac{\pi}{8}\right)^3\\
     f\left(\frac{\pi}{8}\right)&=1-\frac{1}{2!}\left(\frac{\pi}{8}\right)^2+\frac{\sin(\xi)}{3!}\left(\frac{\pi}{8}\right)^3\\
+    f\left(\frac{\pi}{8}\right)&=1-\frac{\pi^2}{128}+\frac{\sin(\xi)\pi^3}{3072}\\
 %        \cos\left(\frac{\pi}{8}\right)&\approx 0{,}9228937 - \frac{f'''(\xi)}{3!}(x-a)^3\\
 %                                       &\approx 0{,}9228937 - \frac{\sin(\xi)}{6}(x-a)^3\\
     \end{aligned}
 \end{equation*}
-
+Vi har nu forsiimplet denne ligning, og vi kan bruge dette til at finde den maksimale fejl af approksimationen.\\
+Dette finder vi ved at undersøge hvornår $R_2\left(\frac{\pi}{8}\right)=\frac{\sin(\xi)\pi^3}{3072}$ indtager den største værdi. Det er nemt at se, fordi $\sin(\xi)$ ligger i tælleren, og vi ved at  $(0<\xi<\frac{\pi}{8})$.\\
+Restleddet kan derfor ikke være større end når $\xi=\frac{\pi}{8}$. Dette indsætter vi i restleddet.
+\begin{equation*}
+    \frac{\sin\left(\frac{\pi}{8}\right)\pi^3}{3072}\approx 0{,}00386
+\end{equation*}
+Vi ved altså med sikkerhed at vores approksimation er rigtig med 2 decimaler.\\
+For at finde den nøjagtige fejl finder vi blot differencen mellem $P_2(x)$ og $f(x)$ :
+\begin{equation*}
+    \left|P_2\left(\frac{\pi}{8}\right)-f\left(\frac{\pi}{8}\right)\right|=\left|1-\frac{\pi^2}{128}-\cos\left(\frac{\pi}{8} \right)   \right|\approx 0{,}00098582
+\end{equation*}
+Vi kan se, at vores maksimale fejl er større end den faktiske fejl, hvilket er som forventet.
+\section{Praktiske anvendelser af Taylorpolynomier}
+Taylorpolynomier
+\subsection{I fysik}
 \section{Konklusion} % samle problemformuleringens underspørgsmål. "jeg har. og så... jeg kan konkludere..."
 \newpage
 \section{Litteraturliste}
