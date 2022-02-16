@@ -125,17 +125,18 @@ Taylorpolynomier er ingen ny opfindelse. De dukkede for første gang op i 17-18.
 \\
 Denne opgave vil beskrive den historiske baggrund for Taylorrækken, bevise formlen for Taylorrækken, undersøge dens restled, samt undersøge hvilke praktiske anvendelser Taylorpolynomier har i dag.
 
-\section{Taylorrækkens historie} % Redegørelse Egne ord. Ikke inddrage citater (fordi så bliver det analyserende).
+\section{Taylorpolynomiets historie} % Redegørelse Egne ord. Ikke inddrage citater (fordi så bliver det analyserende).
 Matematikeren Brook Taylor (1685 - 1731) er navnefader til hvad vi i dag kalder Taylorpolynomier, efter at han i 1715 offentliggjorde en generel formel, der for samtidens matematikere var kendt som Proposition 7, Corollary 2 fra hans \textit{Methodus}.
-Taylors formel ser således ud i sin moderne form:\footcite[s. 247]{roy_2021}$^,$\footcite[s. 72]{feigenbaum_exact_sciences}
+Taylorpolynomier ser således ud i sin moderne form:\footcite[s. 247]{roy_2021}$^,$\footcite[s. 72]{feigenbaum_exact_sciences}
 \begin{equation*}
-   f(x)=f(x_0)+f(x-x_0)\frac{f'(x_0)}{1!}+(x-x_0)^2\frac{f''(x_0)}{2!}+\cdots. 
+   P_n(x)=f(x_0)+f'(x-x_0)+\frac{f''(x_0)}{2!}(x-x_0)^2+\cdots +\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n. 
 \end{equation*}
 Dette kan naturligvis også skrives som:
 \begin{equation*}
-    f(x)=\sum_{n=0}^{\infty}\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n.
+    P_n(x)=\sum_{k=0}^{n}\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k.
 \end{equation*}
-Men Taylor var dog ikke den første der tænkte disse tanker. Man ved i dag, at der var mindst fem andre forløbere: James Gregory, Newton, Leibniz, Johann I. Bernoulli, og Abraham De Movre.\footcite{feigenbaum_exact_sciences}
+Men Taylor var dog ikke den første der tænkte disse tanker. Man ved i dag, at der var mindst fem andre forløbere: James Gregory, Newton, Leibniz, Johann I. Bernoulli, og Abraham De Movre.
+Selvom Taylor nok ikke kom først, giver det stadig mening at attribere metoden til ham, da han var den første der udgav den, samt den første der forstod dens signifikans.\footcite[s. 196]{feigenbaum_exact_sciences} Historien om hvordan Taylorpolynomier blev opdaget er et \blockquote{oplysende eksempel af simultan opdagelse i matematik}\footcite[s. 112]{feigenbaum_exact_sciences}, der belyser en periode med stor udvikling af matematiske metoder, hvilket dannede grobund for helt nye områder indenfor matematik.
 \subsection{Newton, Gregory og Bernoulli}
 
 Taylorpolynomier bygger på en indseelse, at der er en forbindelse mellem en funktions koefficienter og dens afledte. Denne indseelse viser Isaac Newton (1643 - 1727) for første gang i hans \textit{Principia} (1687), og få år senere giver han et egentligt eksempel af Taylors formel i sin \textit{De Quadratura Curvarum} (1691 - 92), som han aldrig færdiggjorde. Dele af denne tekst blev udgivet med titlen \textit{Tractatus de Quadratura Curvarum}, men Taylors formel blev desværre udladt.\footcite[s. 248]{roy_2021} Newton havde altså opdaget disse samme principper femogtyve år tidligere end Taylor, uden at de blev udgivet.\\
@@ -421,9 +422,10 @@ Matematikken i økonomi kan også blive svær at have med at gøre, og også her
 \subsection{I fysik}
 Differentialligninger kan være meget svære at have med at gøre, men Taylorpolynomer gør dem nemme. Dette er nyttigt i mange områder af fysik, det kan være når man studerer elektriske felter, når man optimerer fysiske systemer for at studere et equilibrium i en klump atomer, studiet af porøse stenarters elasticitet eller når man man modellerer havbølgers færden over ujævnt terræn\footcite{applicationsoftaylor}\\
 \\
-Taylorpolynomier er altså et fundamentalt matematisk værktøj, og deres anvendelser kan brede sig ud over stort set alle fag, hvor matematik er involveret. Desuden danner de basis for mange af de digitale reccourcer, som vi tager for givet i vores daglige brug af elektroniske værktøjer.
+Taylorpolynomier er altså et fundamentalt matematisk værktøj, og deres anvendelser kan brede sig ud over stort set alle fag, hvor matematik er involveret. Desuden danner de basis for mange af de digitale resurser, som vi tager for givet i vores daglige brug af elektroniske værktøjer.
 
 \section{Konklusion} % samle problemformuleringens underspørgsmål. "jeg har. og så... jeg kan konkludere..."
+Jeg har vist
 \newpage
 \section{Litteraturliste}
 \subsection{Referenceliste}
