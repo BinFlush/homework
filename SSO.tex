@@ -136,7 +136,7 @@ Dette kan naturligvis også skrives som:
     P_n(x)=\sum_{k=0}^{n}\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k.
 \end{equation*}
 Men Taylor var dog ikke den første der tænkte disse tanker. Man ved i dag, at der var mindst fem andre forløbere: James Gregory, Newton, Leibniz, Johann I. Bernoulli, og Abraham De Movre.\\
-Selvom Taylor nok ikke kom først, giver det stadig mening at attribere metoden til ham, da han var den første der udgav den, samt den første der forstod dens signifikans.\footcite[s. 196]{feigenbaum_exact_sciences} Historien om hvordan Taylorpolynomier blev opdaget er et \blockquote{oplysende eksempel af simultan opdagelse i matematik}\footcite[s. 112]{feigenbaum_exact_sciences}, der belyser en periode med stor udvikling af matematiske metoder, hvilket dannede grobund for helt nye områder indenfor matematik.
+Selvom Taylor nok ikke kom først, giver det stadig mening at attribere metoden til ham, da han var den første der udgav den, samt den første der forstod dens signifikans.\footcite[s. 196]{alma99122953280205763} Historien om hvordan Taylorpolynomier blev opdaget, er ifølge Feigenbaum et \blockquote{oplysende eksempel af simultan opdagelse i matematik}\footcite[s. 112]{alma99122953280205763}, der belyser en periode med stor udvikling af matematiske metoder, hvilket dannede grobund for helt nye områder indenfor matematik.
 \subsection{Newton, Gregory og Bernoulli}
 
 Taylorpolynomier bygger på en indseelse, at der er en forbindelse mellem en funktions koefficienter og dens afledte. Denne indseelse viste Isaac Newton (1643 - 1727) for første gang i hans \textit{Principia} (1687), og få år senere gav han et egentligt eksempel af Taylors formel i sin \textit{De Quadratura Curvarum} (1691 - 92), som han aldrig færdiggjorde. Dele af denne tekst blev udgivet med titlen \textit{Tractatus de Quadratura Curvarum}, men Taylors formel blev desværre udladt.\footcite[s. 248]{roy_2021} Newton havde altså opdaget disse samme principper femogtyve år tidligere end Taylor, uden at de blev udgivet.\\
@@ -146,7 +146,7 @@ En af konsekvenserne af dette var den kendte kontroversi imellem Newton og Gottf
 \blockquote{blev indviklede i en ulykkelig strid om ophavsretten til differential- og integralregningen. Den gik værst  ud over Leibniz. Royal Society dømte ham - ganske uberettiget - for plagiat}.\footcite[s. 103]{uendeligerækker}\\
 En af Leibnitz' største fortalere i denne prioritetsstrid var Johann Bernoulli (1667 - 1748), som i slutningen af 1690'erne også havde udgivet en formel der lignede Taylors formel. Mejlbo skriver om Bernoulli at: \blockquote{\dots han havde et voldsomt temperament, så han overfusede Taylor med beskyldninger for plagiat.}\footcite[s. 111]{uendeligerækker}.\\
 \\
-Den tidligste opdager af Taylors formel var dog nok den Skotske matematiker James Gregory (1638 – 1675). Man ved nu, at han i 1671 havde brugt Taylorpolynomier omkring nul, for kendte funktioner. Dette var over 40 år før Taylor udgav sim \textit{Methodus}. Dette vides kun, fordi Gregory havde sendt polynomier der representerede trigonometriske funktioner til en kollega, uden at han havde forklaret sin metode. Der var dog en mindre fejl i en af resultaterne, hvilket man senere kunne spore tilbage til Gregorys uudgivne papirer, hvor de fulde Taylorpolynomier viser sig.\footcite[s. 113-118]{feigenbaum_exact_sciences}
+Den tidligste opdager af Taylors formel var dog nok den Skotske matematiker James Gregory (1638 – 1675). Man ved nu, at han i 1671 havde brugt Taylorpolynomier omkring nul, for kendte funktioner. Dette var over 40 år før Taylor udgav sim \textit{Methodus}. Dette vides kun, fordi Gregory havde sendt polynomier der representerede trigonometriske funktioner til en kollega, uden at han havde forklaret sin metode. Der var dog en mindre fejl i en af resultaterne, hvilket man senere kunne spore tilbage til Gregorys uudgivne papirer, hvor de fulde Taylorpolynomier viser sig.\footcite[s. 113-118]{alma99122953280205763}
 \section{Analyse} % Kød og kartofler. Brug modellen (introducere citatet, så kommer citatet, og så kommenterer man.
 \subsection{De første led af Taylorpolynomier}
 Man kan opnå en simpel intuitiv forståelse for Taylorpolynomier med følgende fremgangsmåde:\\
@@ -387,7 +387,7 @@ Vi kan benytte os af Taylors formel med restled, hvor $n=2$, fordi det er et and
 %                                       &\approx 0{,}9228937 - \frac{\sin(\xi)}{6}(x-a)^3\\
     \end{aligned}
 \end{equation*}
-Vi har nu forsiimplet denne ligning, og vi kan bruge dette til at finde den maksimale fejl af approksimationen.\\
+Vi har nu forsimplet denne ligning, og vi kan bruge dette til at finde den maksimale fejl af approksimationen.\\
 Dette finder vi ved at undersøge hvornår $R_2\left(\frac{\pi}{8}\right)=\frac{\sin(\xi)\pi^3}{3072}$ indtager den største værdi. Det er nemt at se, fordi $\sin(\xi)$ ligger i tælleren, og vi ved at  $(0<\xi<\frac{\pi}{8})$.\\
 Restleddet kan derfor ikke være større end når $\xi=\frac{\pi}{8}$. Dette indsætter vi i restleddet.
 \begin{equation*}
@@ -398,7 +398,10 @@ For at finde den nøjagtige fejl finder vi blot differencen mellem $P_2(x)$ og $
 \begin{equation*}
     \left|P_2\left(\frac{\pi}{8}\right)-f\left(\frac{\pi}{8}\right)\right|=\left|1-\frac{\pi^2}{128}-\cos\left(\frac{\pi}{8} \right)   \right|\approx 0{,}00098582
 \end{equation*}
-Vi kan se, at vores maksimale fejl er større end den faktiske fejl, hvilket er som forventet.
+Vi kan se, at vores maksimale fejl er større end den faktiske fejl, hvilket er som forventet.\\
+\\
+Hvis man skulle bruge denne approksimation til at måle en parallakse i astronomi eller lignende, kan man forestille sig, at det ikke var nok med 2 decimalers garanteret nøjagtighed indenfor $\sfrac{\pi}{8}$ikke er nok.\\
+I så fald kan vi beslutte os for at vi får brug for et større $n$.
 \section{Praktiske anvendelser af Taylorpolynomier}
 I den digitale tidsalders barndom troede man i en periode, at Taylorpolynomier hovedsageligt ville have historisk interresse, men det har vist sig, at kendskab til disse metoder stadig i dag er relevant. Når man sender robotter til Mars, eller undersøger fysiske fenomener på nano-niveau, kræver det kompliceret og præcis matematik, hvor Taylorpolynomier ofte finder sin plads.\footcite[s. 11]{hvadermatematik}\\
 Det er dog ikke kun studiet af fjerne planeter og små atomer der drager udbytte af denne regnemetode. Taylorpolynomier er også en del af den teori, der danner grund for mange af de elektroniske apparater, som vi bruger hver dag. 
@@ -428,7 +431,15 @@ Differentialligninger kan være meget svære at have med at gøre, men Taylorpol
 Taylorpolynomier er altså et fundamentalt matematisk værktøj, og deres anvendelser kan brede sig ud over stort set alle fag, hvor matematik er involveret. Desuden danner de basis for mange af de digitale resurser, som vi tager for givet i vores daglige brug af elektroniske værktøjer.
 
 \section{Konklusion} % samle problemformuleringens underspørgsmål. "jeg har. og så... jeg kan konkludere..."
-\blindtext[1-2]
+%\textcolor{red}{Beskriv taylorpolinomier i et historisk lys\\}
+Slutningen af 1600- til begyndelsen af 1700-tallet var for matematikken en udviklingsrig periode, hvor Taylorpolynomier opstod for første gang. Der var en del rivalisering blandt datidens matematikere, og æren af opdagelsen af Taylorpolynomier gik ikke til Brook Taylor uden tilhørende intriger, men vi ved nu, at den ære er ham berettiget.\\
+\\
+%\textcolor{red}{Bevis formlen for taylorrækken og undersøg taylorpolynomiers restled\\}
+Jeg har bevist formlen for Taylorrækken, samt undersøgt Taylorpolynomiers restled, med tilhørende bevis til Taylors formel.\\
+Jeg har så taget eksemplet $f(x)\cos{(\theta)}$ og analyseret størrelsen af den fejl vi begår ved at se bort fra restleddet.\\
+Til sidst kunne jeg konkludere, at Taylorpolynomier er essentielle for et utal af forskellige emner, og at de i høj grad er relevante i den moderne tidsalder.
+%\textcolor{red}{analiser med konkrete eksempler størrelsen af den fejl vi begår ved at se bort fra restleddet\\}
+%\textcolor{red}{perspektivér ved at overveje praktiske anvendelser af taylorpolynomier}
 \section{Litteraturliste}
 \subsection{Referenceliste}
 \printbibliography[title=Cited]
