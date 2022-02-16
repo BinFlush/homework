@@ -10,9 +10,11 @@
 %\usepackage{utopia}
 %\usepackage{newcomputermodern}
 \usepackage{lmodern}
+\usepackage[colorlinks=true,linkcolor=black,anchorcolor=black,citecolor=black,filecolor=black,menucolor=black,runcolor=black,urlcolor=black]{hyperref}
 \usepackage{varwidth}
 \usepackage{amsmath}
 \usepackage{amsthm}
+\usepackage{xfrac}
 \renewcommand\qedsymbol{$\blacksquare$}
 \usepackage{amssymb}
 \usepackage{mdframed}
@@ -75,6 +77,7 @@
 %\pagestyle{fancy}
 %\fancyhead{}
 %\fancyfoot{}
+\AtBeginDocument{\let\textlabel\label}%
 \begin{document}
 \selectlanguage{danish}
 \begin{refsection}
@@ -393,8 +396,33 @@ For at finde den nøjagtige fejl finder vi blot differencen mellem $P_2(x)$ og $
 \end{equation*}
 Vi kan se, at vores maksimale fejl er større end den faktiske fejl, hvilket er som forventet.
 \section{Praktiske anvendelser af Taylorpolynomier}
-Taylorpolynomier
+I den digitale tidsalders barndom troede man i en periode, at Taylorpolynomier hovedsageligt ville have historisk interresse, men det har vist sig, at kendskab til disse metoder stadig i dag er relevant. Når man sender robotter til Mars, eller undersøger fysiske fenomener på nano-niveau, kræver det kompliceret og præcis matematik, hvor Taylorpolynomier ofte finder sin plads.\footcite[s. 11]{hvadermatematik}\\
+Det er dog ikke kun studiet af fjerne planeter og små atomer der drager udbytte af denne regnemetode. Taylorpolynomier er også en del af den teori, der danner grund for mange af de elektroniske apparater, som vi bruger hver dag. 
+\subsection{I computervidenskab}
+Taylorpolynomier kan have meget fundamentale anvendelser. Man kan forestille sig en computer der kun kan addere $(+)$, subtrahere $(-)$ og multipicere $(\times)$, men ikke dividere $(\div)$. Ville sådan en computer kunne udregne en brøk?\\
+I dette scenarie kunne man bruge et enkelt Taylorpolynomium. Nemlig Taylorpolynomiet for en geometrisk serie:
+\begin{equation*}
+    \begin{aligned}
+        \frac{1}{1-x}&\approx 1+x+x^2+x^3+\cdots+x^n, \quad |x|<1\\
+    \end{aligned}
+\end{equation*}
+Vi kan fx. approksimere $\sfrac{329}{73}$ med denne metode, helt uden at dividere:\footcite[s. 646]{calculuswithanalyticgeometry}\\
+\begin{equation*}
+    \begin{aligned}
+        \frac{329}{73}&=\frac{3{,}29}{0{,}73}=3{,}29\cdot\frac{1}{1-0{,}27}\\
+                      &\approx 3{,}29\cdot\left(1+0{,}27+0{,}27^2+\cdots+0{,}27^{10}\right)\\
+                      &\approx3{,}29\cdot1{,}36986\\
+        \frac{329}{73}&\approx 4{,}5068
+    \end{aligned}
+\end{equation*}
+I virkeligheden bruger computere dog ikke denne metode. De bruger hurtigere algoritmer så som Goldschmidts eller Newton-Raphsons algoritmer.\footcite{division}, men der er andre problemer der konkret løses med viden, som den der findes i Taylorpolynomier, eksempelvis integralet af \textit{transcendente} funktioner så som $\sin(x), \cos(x), e^x \text{ og } \ln(x)$. Computere drager isér ofte nytte af Taylorpolynomier når de for eksempel i videospil skal udregne trigonometriske funktioner hurtigt og effektivt.\footcite[11]{hvadermatematik}
+\subsection{I økonomi}
+Matematikken i økonomi kan også blive svær at have med at gøre, og også her finder Taylorpolynomier andvendelse. et eksempel på dette er \textit{Black-Scholes} formlen, der kan bruges til at udregne prisen for en option på en aktie, hvor Taylorpolynomier tit bruges i formlens implementering, men her er det vigtigt at have indgående kendskab til Taylorpolynomier, for ikke at bruge dem forkert. \footcite{aktier}
 \subsection{I fysik}
+Differentialligninger kan være meget svære at have med at gøre, men Taylorpolynomer gør dem nemme. Dette er nyttigt i mange områder af fysik, det kan være når man studerer elektriske felter, når man optimerer fysiske systemer for at studere et equilibrium i en klump atomer, studiet af porøse stenarters elasticitet eller når man man modellerer havbølgers færden over ujævnt terræn\footcite{applicationsoftaylor}\\
+\\
+Taylorpolynomier er altså et fundamentalt matematisk værktøj, og deres anvendelser kan brede sig ud over stort set alle fag, hvor matematik er involveret. Desuden danner de basis for mange af de digitale reccourcer, som vi tager for givet i vores daglige brug af elektroniske værktøjer.
+
 \section{Konklusion} % samle problemformuleringens underspørgsmål. "jeg har. og så... jeg kan konkludere..."
 \newpage
 \section{Litteraturliste}
