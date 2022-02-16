@@ -107,7 +107,7 @@
 %%%%% :set spell spelllang=da (fyri at byrja spellcheck)
 %%%% :set nospell fyri at sløkkja
 %\setcounter{page}{2} % Set dette hvis første side tæller med i sidecount 
-\section*{Resume} %150 ord (det essentielle i min opgave, dvs ca 8 linjer
+\section*{Resumé} %150 ord (det essentielle i min opgave, dvs ca 8 linjer
 \blindtext[1-2]
 \tableofcontents
 \newpage
@@ -135,22 +135,20 @@ Dette kan naturligvis også skrives som:
 \begin{equation*}
     P_n(x)=\sum_{k=0}^{n}\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k.
 \end{equation*}
-Men Taylor var dog ikke den første der tænkte disse tanker. Man ved i dag, at der var mindst fem andre forløbere: James Gregory, Newton, Leibniz, Johann I. Bernoulli, og Abraham De Movre.
+Men Taylor var dog ikke den første der tænkte disse tanker. Man ved i dag, at der var mindst fem andre forløbere: James Gregory, Newton, Leibniz, Johann I. Bernoulli, og Abraham De Movre.\\
 Selvom Taylor nok ikke kom først, giver det stadig mening at attribere metoden til ham, da han var den første der udgav den, samt den første der forstod dens signifikans.\footcite[s. 196]{feigenbaum_exact_sciences} Historien om hvordan Taylorpolynomier blev opdaget er et \blockquote{oplysende eksempel af simultan opdagelse i matematik}\footcite[s. 112]{feigenbaum_exact_sciences}, der belyser en periode med stor udvikling af matematiske metoder, hvilket dannede grobund for helt nye områder indenfor matematik.
 \subsection{Newton, Gregory og Bernoulli}
 
-Taylorpolynomier bygger på en indseelse, at der er en forbindelse mellem en funktions koefficienter og dens afledte. Denne indseelse viser Isaac Newton (1643 - 1727) for første gang i hans \textit{Principia} (1687), og få år senere giver han et egentligt eksempel af Taylors formel i sin \textit{De Quadratura Curvarum} (1691 - 92), som han aldrig færdiggjorde. Dele af denne tekst blev udgivet med titlen \textit{Tractatus de Quadratura Curvarum}, men Taylors formel blev desværre udladt.\footcite[s. 248]{roy_2021} Newton havde altså opdaget disse samme principper femogtyve år tidligere end Taylor, uden at de blev udgivet.\\
+Taylorpolynomier bygger på en indseelse, at der er en forbindelse mellem en funktions koefficienter og dens afledte. Denne indseelse viste Isaac Newton (1643 - 1727) for første gang i hans \textit{Principia} (1687), og få år senere gav han et egentligt eksempel af Taylors formel i sin \textit{De Quadratura Curvarum} (1691 - 92), som han aldrig færdiggjorde. Dele af denne tekst blev udgivet med titlen \textit{Tractatus de Quadratura Curvarum}, men Taylors formel blev desværre udladt.\footcite[s. 248]{roy_2021} Newton havde altså opdaget disse samme principper femogtyve år tidligere end Taylor, uden at de blev udgivet.\\
 \\
 Newton havde i det hele taget svært ved at udgive sine findelser før han blev kendt i videre kredse, hvilket til tider voldte ham problemer i at blive anerkendt for sine opdageser. \footcite[s. 116]{uendeligerækker}\\
 En af konsekvenserne af dette var den kendte kontroversi imellem Newton og Gottfried Wilhelb Leibniz (1646 - 1716), da de ifølge Mejlbo:
 \blockquote{blev indviklede i en ulykkelig strid om ophavsretten til differential- og integralregningen. Den gik værst  ud over Leibniz. Royal Society dømte ham - ganske uberettiget - for plagiat}.\footcite[s. 103]{uendeligerækker}\\
-En af Leibnitz' største fortalere i denne prioritetsstrid var Johann Bernoulli (1667 - 1748), som i slutningen af 1690'erne også havde udgivet en formel der lignede Taylors formel. Mejlbo skriver om Bernoulli at: \blockquote{\dots han havde et voldsomt temperament, så han overfusede Taylor med beskyldninger for plagiat.}\footcite[s. 111]{uendeligerækker}. \textcolor{red}{mere om Bernoulli og Taylors rivalisering}\\
+En af Leibnitz' største fortalere i denne prioritetsstrid var Johann Bernoulli (1667 - 1748), som i slutningen af 1690'erne også havde udgivet en formel der lignede Taylors formel. Mejlbo skriver om Bernoulli at: \blockquote{\dots han havde et voldsomt temperament, så han overfusede Taylor med beskyldninger for plagiat.}\footcite[s. 111]{uendeligerækker}.\\
 \\
-Den tidligste opdager af Taylors formel var dog nok den Skotske matematiker James Gregory (1638 – 1675).\\
-\textcolor{red}{\textbf{Mere om Gregory}} 
-\newpage
+Den tidligste opdager af Taylors formel var dog nok den Skotske matematiker James Gregory (1638 – 1675). Man ved nu, at han i 1671 havde brugt Taylorpolynomier omkring nul, for kendte funktioner. Dette var over 40 år før Taylor udgav sim \textit{Methodus}. Dette vides kun, fordi Gregory havde sendt polynomier der representerede trigonometriske funktioner til en kollega, uden at han havde forklaret sin metode. Der var dog en mindre fejl i en af resultaterne, hvilket man senere kunne spore tilbage til Gregorys uudgivne papirer, hvor de fulde Taylorpolynomier viser sig.\footcite[s. 113-118]{feigenbaum_exact_sciences}
 \section{Analyse} % Kød og kartofler. Brug modellen (introducere citatet, så kommer citatet, og så kommenterer man.
-\subsection{Pædagogisk gennemgang (\textcolor{red}{arbejdstitel})}
+\subsection{De første led af Taylorpolynomier}
 Man kan opnå en simpel intuitiv forståelse for Taylorpolynomier med følgende fremgangsmåde:\\
 Man ønsker at approksimere en given funktion $f(x)$ fra x-værdien $x_0$. I dette eksempel bruges funktionen $f(x)=e^x$, og $x_0=1$.\\
 \begin{figure}[h!]
@@ -169,17 +167,20 @@ Dette er funktionens nultegrads Taylorpolynomium, som er en meget grov approksim
     \Updownarrow\quad &=f(x_0)+f'(x_0) \cdot (x-x_0)
 \end{aligned}
 .\] 
-Den gældende funktion indsættes, og hermed findes funktionens førstegrads Taylorpolynomium  (\textit{Figur 1, blå}).\\
+Den gældende funktion indsættes, og hermed findes funktionens førstegrads Taylorpolynomium  (\textit{Figur 1, blå}).
 \[
 \begin{aligned}
     y&=e+e\cdot (x-1)
 \end{aligned}
 .\] 
-Nu er værdien samt hældningen på $x_0$ korrekt. Dette er ikke en dårlig approksimation for værdier tæt på $x_0$ (se Figur 1.) For at forbedre approksimationen kan man tilføje den korrekte krumning. 
+Nu er værdien samt hældningen på $x_0$ korrekt. Dette er ikke en dårlig approksimation for værdier tæt på $x_0$ (se Figur 1.). Vi har i denne process været nødt til at finde den afledte af $f(x)$, det ville derfor kun være muligt med funktioner der er kontinuerte og differentiable omkring $x_0$. \\
+\\
+For at forbedre approksimationen yderligere, kan man tilføje den korrekte krumning. Dette gøres ved at finde et andengradspolynomium, hvor den anden afledte stemmer overens med den oprindelige funktions anden afledte. Her dukker Taylorpolynomiers egentlige mekanik op, og kan derfor begynde på beviset.\\
+
 \subsection{Bevis for Taylorpolynomiet}
 \begin{proof}[Bevis]
     
-Vi har indtil videre set, hvordan en tangent og en parabel blev brugt som en polynomisk approksimation for en funktion $f(x)$. Vi kan generalisere denne approksimationsmetode tæt på $x=x_0$ med et  $n$-tegrads polynomium.\\
+Vi har indtil videre set, hvordan en konstant og en tangent blev brugt som en approksimation for en funktion $f(x)$. Vi kan udvide og generalisere denne approksimationsmetode tæt på $x=x_0$ med et  $n$-tegrads polynomium.\\
 \[
 P_n(x)=c_0+c_1x+c_2x^2+ \cdots +c_nx^n
 \] 
@@ -193,6 +194,7 @@ således at polynomiets værdi på $x_0$ stemmer overens med  $f(x_0)$. Det samm
          P^{(n)}_n(x_0)&=f^{(n)}(x_0).
      \end{aligned}
 \end{equation}
+Deraf følger, at dette kun gælder for funktioner der er kontinuerte og $n$ gange differentiable på $x=x_0$.\\
 Eftersom det er $x_0$ vi har interesse i, giver det mening at udtrykke  $P_n$ på formen:
 \begin{equation}\label{nybevis1}
    P_n(x)=c_0+c_1(x-x_0)+c_2(x-x_0)^2+\cdots+c_n(x-x_0)^n 
@@ -328,6 +330,7 @@ Derfor følger, at når man indsætter ligning (\ref{bevisrest2}) i ligning (\re
          \end{aligned}
      \end{equation*}
      Som endelig kan manipuleres til at give ligning (\ref{teorem2}) følgende Teorem:
+     \newpage
      \begin{mdframed}
      Taylors formel: Lad $f$ være $(n+1)$ gange differentiabel i et interval der indeholder punkterne  $a$ og $b$. Så er $f(b)$ :
      \begin{equation}\label{teorem2}
@@ -344,7 +347,7 @@ Derfor følger, at når man indsætter ligning (\ref{bevisrest2}) i ligning (\re
      \begin{equation*}
          R_n(x)=\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-a)^{(n+1)}
      \end{equation*}
-\subsection{Konkrete eksempler på fejl} % Måske tage nogle fagpersoner med eller noget. Gerne selv tage stilling.
+\subsection{Konkret eksempel på fejl} % Måske tage nogle fagpersoner med eller noget. Gerne selv tage stilling.
 Overvej for eksempel en beregning hvor en cosinusfunktion indgår. $f(x)=\cos(x)$ Vi kan analysere størrelsen af den fejl der opstår ved at approksimere den med Taylorpolynomier af $n$'te grad med udviklingspunkt $x_0=0$.\\
 Først undersøger vi et simpelt andengradstaylorpolynomium uden restled med hjælp af ligning (\ref{taylorpolynomier}):\\
  \begin{equation*}
@@ -425,8 +428,7 @@ Differentialligninger kan være meget svære at have med at gøre, men Taylorpol
 Taylorpolynomier er altså et fundamentalt matematisk værktøj, og deres anvendelser kan brede sig ud over stort set alle fag, hvor matematik er involveret. Desuden danner de basis for mange af de digitale resurser, som vi tager for givet i vores daglige brug af elektroniske værktøjer.
 
 \section{Konklusion} % samle problemformuleringens underspørgsmål. "jeg har. og så... jeg kan konkludere..."
-Jeg har vist
-\newpage
+\blindtext[1-2]
 \section{Litteraturliste}
 \subsection{Referenceliste}
 \printbibliography[title=Cited]
