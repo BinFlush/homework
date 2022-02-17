@@ -175,15 +175,15 @@ Den gældende funktion indsættes, og hermed findes funktionens førstegrads Tay
 .\] 
 Nu er værdien samt hældningen på $x_0$ korrekt. Dette er ikke en dårlig approksimation for værdier tæt på $x_0$ (se Figur 1.). Vi har i denne process været nødt til at finde den afledte af $f(x)$, det ville derfor kun være muligt med funktioner der er kontinuerte og differentiable omkring $x_0$. \\
 \\
-For at forbedre approksimationen yderligere, kan man tilføje den korrekte krumning. Dette gøres ved at finde et andengradspolynomium, hvor den anden afledte stemmer overens med den oprindelige funktions anden afledte. Her dukker Taylorpolynomiers egentlige mekanik op, og kan derfor begynde på beviset.\\
+For at forbedre approksimationen yderligere, kan man tilføje den korrekte krumning. Dette gøres ved at finde et andengradspolynomium, hvor den anden afledte stemmer overens med den oprindelige funktions anden afledte. Her dukker Taylorpolynomiers egentlige mekanik op, hvilket forstås nemmest vha. næste sektion:
 
 \subsection{Bevis for Taylorpolynomiet}
 \begin{proof}[Bevis]
     
 Vi har indtil videre set, hvordan en konstant og en tangent blev brugt som en approksimation for en funktion $f(x)$. Vi kan udvide og generalisere denne approksimationsmetode tæt på $x=x_0$ med et  $n$-tegrads polynomium.\\
-\[
+\begin{equation*}
 P_n(x)=c_0+c_1x+c_2x^2+ \cdots +c_nx^n
-\] 
+\end{equation*}
 således at polynomiets værdi på $x_0$ stemmer overens med  $f(x_0)$. Det samme skal gælde for alle afledte, op til $n$ gange afledte funktioner, dvs:
  \begin{equation}\label{deafledtestemmer}
      \begin{aligned}
@@ -395,13 +395,25 @@ Restleddet kan derfor ikke være større end når $\xi=\frac{\pi}{8}$. Dette ind
 \end{equation*}
 Vi ved altså med sikkerhed at vores approksimation er rigtig med 2 decimaler.\\
 For at finde den nøjagtige fejl finder vi blot differencen mellem $P_2(x)$ og $f(x)$ :
-\begin{equation*}
+\begin{equation}\label{faktiskfejl}
     \left|P_2\left(\frac{\pi}{8}\right)-f\left(\frac{\pi}{8}\right)\right|=\left|1-\frac{\pi^2}{128}-\cos\left(\frac{\pi}{8} \right)   \right|\approx 0{,}00098582
-\end{equation*}
+\end{equation}
 Vi kan se, at vores maksimale fejl er større end den faktiske fejl, hvilket er som forventet.\\
 \\
-Hvis man skulle bruge denne approksimation til at måle en parallakse i astronomi eller lignende, kan man forestille sig, at det ikke var nok med 2 decimalers garanteret nøjagtighed indenfor $\sfrac{\pi}{8}$ikke er nok.\\
-I så fald kan vi beslutte os for at vi får brug for et større $n$.
+Hvis man skulle bruge denne approksimation til astronomiske parallaksemålinger eller lignende, kan man forestille sig, at det ikke ville væer nok med 2 decimalers garanteret nøjagtighed indenfor en vinkel på $\sfrac{\pi}{8}$. I så fald får vi brug for et større $n$.\\
+Lad os derfor undersøge og sammenligne den maksimale fejl ved det tilsvarende tredjegradstaylorpolynomium, dog uden alle mellemregningerne, der foregår ligesom første eksempel.
+    \begin{align*}
+        P_3\left(\frac{\pi}{8}\right)=1-\frac{\pi^2}{128}, \quad \quad R_3\left(\frac{\pi}{8}\right)=\frac{\cos(\xi)\pi^4}{98304}\\
+    \end{align*}
+    Her observerer vi et spøjst fenomen. Hvert led i Taylorpolynomiet indeholder en afledt funktion af stigende grad. I dette tilfælde betyder det at hvert led skifter imellem at indeholde en sinusfunktion og en cosinusfunktion. Eftersom vi har valgt udviklingspunkt $a=0$, indeholder hvert andet led $\sin(0)=0$, og forsvinder derfor.\\
+    Dette betyder at  $1-\frac{\theta^2}{2}$ er ikke kun det bedste andengradstaylorpolynomium for $\cos(\theta)$, men tilmed det bedste tredjegradstaylorpolynomium for funktionen.\footcite{3blue1browntaylor}\\
+    Restleddet indeholder imidlertid ikke udviklingspunktet, men en variabel  $\xi$, og kan derfor aldrig ignoreres.\\
+    I dette tilfælde betyder det, at selvom vores approksimation er uændret, kan vi udregne en ny maksimumfejl. Vi skal også være opmærksomme på, at den nye trigonometriske funktion i restleddet nødvendiggør et nyt $\xi$, og da  $\cos(\xi), \text{ hvor }(0\leq \xi \leq \sfrac{8}{\pi})$ har maksimum når $\xi=0$, er dette vores nye værdi for $\xi$:
+    \begin{equation*}
+       \text{max- } R_{3}(0)=\frac{\cos(0)\pi^4}{98304}\approx 0{,}0009908965
+    \end{equation*}
+    Og vi har herved lært, at vores udtryk for $P_3(3)$ er garanteret nøjagtigt til 3 decimaler i intervallet $[0;\sfrac{\pi}{8}]$, (og som udvidelse til $-\sfrac{\pi}{8}$ pga. funktionens symmetri omkring 0). Dette er også meget tæt på den faktiske fejl som vi oplevede i ligning (\ref{faktiskfejl}), hvilket giver mening, eftersom vores $x$-værdi havde den størst mulige afstand fra Taylorpolynomiets udviklingspunkt, indenfor vores valgte interval.\\
+Hvis man er tilfreds med denne fejl, kan man altså trygt se bort fra restleddet. 
 \section{Praktiske anvendelser af Taylorpolynomier}
 I den digitale tidsalders barndom troede man i en periode, at Taylorpolynomier hovedsageligt ville have historisk interresse, men det har vist sig, at kendskab til disse metoder stadig i dag er relevant. Når man sender robotter til Mars, eller undersøger fysiske fenomener på nano-niveau, kræver det kompliceret og præcis matematik, hvor Taylorpolynomier ofte finder sin plads.\footcite[s. 11]{hvadermatematik}\\
 Det er dog ikke kun studiet af fjerne planeter og små atomer der drager udbytte af denne regnemetode. Taylorpolynomier er også en del af den teori, der danner grund for mange af de elektroniske apparater, som vi bruger hver dag. 
@@ -436,7 +448,7 @@ Slutningen af 1600- til begyndelsen af 1700-tallet var for matematikken en udvik
 \\
 %\textcolor{red}{Bevis formlen for taylorrækken og undersøg taylorpolynomiers restled\\}
 Jeg har bevist formlen for Taylorrækken, samt undersøgt Taylorpolynomiers restled, med tilhørende bevis til Taylors formel.\\
-Jeg har så taget eksemplet $f(x)\cos{(\theta)}$ og analyseret størrelsen af den fejl vi begår ved at se bort fra restleddet.\\
+Jeg har så taget eksemplet $f(x)=\cos{(\theta)}$ og analyseret størrelsen af den fejl vi begår ved at se bort fra restleddet.\\
 Til sidst kunne jeg konkludere, at Taylorpolynomier er essentielle for et utal af forskellige emner, og at de i høj grad er relevante i den moderne tidsalder.
 %\textcolor{red}{analiser med konkrete eksempler størrelsen af den fejl vi begår ved at se bort fra restleddet\\}
 %\textcolor{red}{perspektivér ved at overveje praktiske anvendelser af taylorpolynomier}
