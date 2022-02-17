@@ -78,6 +78,9 @@
 %\fancyhead{}
 %\fancyfoot{}
 \AtBeginDocument{\let\textlabel\label}%
+
+
+
 \begin{document}
 \selectlanguage{danish}
 \begin{refsection}
@@ -116,9 +119,7 @@
 
 \section{Indledning} %ca en halv side til en side. I egne ord, hvorfor dette er interessant. God ide at slutte af med problemformuleringen, "Og her vil jeg..."
 Matematik kan til tider synes firkantet og rigidt, hvor abstrakte forhold opskrives i eksakte formler, og hvor der ikke er plads til kreativitet. 
-Dykker man dybere ind i faget vil man dog opdage, at dette ikke er tilfældet, og at der er mange situationer, hvor man gør kreativt brug af relativt ueksakte værktøjer. Et af disse er såkaldte Taylorpolynomier.
-
-
+Dykker man dybere ind i faget vil man dog opdage, at dette ikke er tilfældet, og at der er mange situationer, hvor man gør kreativt brug af relativt ueksakte værktøjer. Et af disse er såkaldte Taylorpolynomier.\\
 I matematikkens verden findes der alverdens slags funktioner, hvor nogle er mere medgørlige end andre. Nutidens computerteknik kræver desuden hurtig og praktisk behandling af alle disse formler, og i den forbindelse indtræder Taylorpolynomier ofte.\\
 \\
 Taylorpolynomier er ingen ny opfindelse. De dukkede for første gang op i 17-18. århundrede, men hvordan blev de opdaget? Der er ingen tvivl om at de har haft stor indflydelse på måden som matematik bliver behandlet i dag, men hvordan ved man om de er korrekte, i hvilken grad ved man det, og hvorfor er det i det hele taget relevant i dag?\\
@@ -136,27 +137,30 @@ Dette kan naturligvis også skrives som:
     P_n(x)=\sum_{k=0}^{n}\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k.
 \end{equation*}
 Men Taylor var dog ikke den første der tænkte disse tanker. Man ved i dag, at der var mindst fem andre forløbere: James Gregory, Newton, Leibniz, Johann I. Bernoulli, og Abraham De Movre.\\
-Selvom Taylor nok ikke kom først, giver det stadig mening at attribere metoden til ham, da han var den første der udgav den, samt den første der forstod dens signifikans.\footcite[s. 196]{alma99122953280205763} Historien om hvordan Taylorpolynomier blev opdaget, er ifølge Feigenbaum et \blockquote{oplysende eksempel af simultan opdagelse i matematik}\footcite[s. 112]{alma99122953280205763}, der belyser en periode med stor udvikling af matematiske metoder, hvilket dannede grobund for helt nye områder indenfor matematik.
+Selvom Taylor nok ikke kom først, giver det stadig mening at attribuere metoden til ham, da han var den første der udgav den, samt den første der forstod dens signifikans.\footcite[s. 196]{alma99122953280205763} Historien om hvordan Taylorpolynomier blev opdaget, er ifølge Feigenbaum et \blockquote{oplysende eksempel af simultan opdagelse i matematik}\footcite[s. 112]{alma99122953280205763}, der belyser en periode med stor udvikling af matematiske metoder, hvilket dannede grobund for helt nye områder indenfor matematik.
 \subsection{Newton, Gregory og Bernoulli}
 
-Taylorpolynomier bygger på en indseelse, at der er en forbindelse mellem en funktions koefficienter og dens afledte. Denne indseelse viste Isaac Newton (1643 - 1727) for første gang i hans \textit{Principia} (1687), og få år senere gav han et egentligt eksempel af Taylors formel i sin \textit{De Quadratura Curvarum} (1691 - 92), som han aldrig færdiggjorde. Dele af denne tekst blev udgivet med titlen \textit{Tractatus de Quadratura Curvarum}, men Taylors formel blev desværre udladt.\footcite[s. 248]{roy_2021} Newton havde altså opdaget disse samme principper femogtyve år tidligere end Taylor, uden at de blev udgivet.\\
+Taylorpolynomier bygger på en indseelse, at der er en forbindelse mellem en funktions koefficienter og dens afledte. Denne indseelse viste Isaac Newton (1643 - 1727) for første gang i hans \textit{Principia} (1687), og få år senere gav han et egentligt eksempel af Taylors formel i sin \textit{De Quadratura Curvarum} (1691 - 92), som han aldrig færdiggjorde. Dele af denne tekst blev udgivet med titlen \textit{Tractatus de Quadratura Curvarum}, men Taylors formel blev desværre undladt.\footcite[s. 248]{roy_2021} Newton havde altså opdaget disse samme principper femogtyve år tidligere end Taylor, uden at de blev udgivet.\\
 \\
-Newton havde i det hele taget svært ved at udgive sine findelser før han blev kendt i videre kredse, hvilket til tider voldte ham problemer i at blive anerkendt for sine opdageser. \footcite[s. 116]{uendeligerækker}\\
-En af konsekvenserne af dette var den kendte kontroversi imellem Newton og Gottfried Wilhelb Leibniz (1646 - 1716), da de ifølge Mejlbo:
+Newton havde i det hele taget svært ved at udgive sine fund, før han blev kendt i videre kredse, hvilket til tider voldte ham problemer i at blive anerkendt for sine opdagelser. \footcite[s. 116]{uendeligerækker}\\
+En af konsekvenserne af dette var den kendte uoverensstemmelse mellem Newton og Gottfried Wilhelb Leibniz (1646 - 1716), da de ifølge Mejlbo:
 \blockquote{blev indviklede i en ulykkelig strid om ophavsretten til differential- og integralregningen. Den gik værst  ud over Leibniz. Royal Society dømte ham - ganske uberettiget - for plagiat}.\footcite[s. 103]{uendeligerækker}\\
 En af Leibnitz' største fortalere i denne prioritetsstrid var Johann Bernoulli (1667 - 1748), som i slutningen af 1690'erne også havde udgivet en formel der lignede Taylors formel. Mejlbo skriver om Bernoulli at: \blockquote{\dots han havde et voldsomt temperament, så han overfusede Taylor med beskyldninger for plagiat.}\footcite[s. 111]{uendeligerækker}.\\
 \\
-Den tidligste opdager af Taylors formel var dog nok den Skotske matematiker James Gregory (1638 – 1675). Man ved nu, at han i 1671 havde brugt Taylorpolynomier omkring nul, for kendte funktioner. Dette var over 40 år før Taylor udgav sim \textit{Methodus}. Dette vides kun, fordi Gregory havde sendt polynomier der representerede trigonometriske funktioner til en kollega, uden at han havde forklaret sin metode. Der var dog en mindre fejl i en af resultaterne, hvilket man senere kunne spore tilbage til Gregorys uudgivne papirer, hvor de fulde Taylorpolynomier viser sig.\footcite[s. 113-118]{alma99122953280205763}
+Den tidligste opdager af Taylors formel var dog nok den Skotske matematiker James Gregory (1638 – 1675). Man ved nu, at han i 1671 havde brugt Taylorpolynomier omkring nul, for kendte funktioner. Dette var over 40 år før Taylor udgav sin \textit{Methodus}. Dette vides kun, fordi Gregory havde sendt polynomier der repræsenterede trigonometriske funktioner til en kollega, uden at han havde forklaret sin metode. Der var dog en mindre fejl i en af resultaterne, hvilket man senere kunne spore tilbage til Gregorys uudgivne papirer, hvor de fulde Taylorpolynomier viser sig.\footcite[s. 113-118]{alma99122953280205763}\\
+\\
+Denne tid var præget af hurtig udvikling, og i et sådant miljø kan man forvente, at opdagelser sker uafhængigt af hinanden. Dette var delvis tilfældet med Taylorpolynomiets oprindelse, men det kan dog være svært at sortere grundigt nok igennem relevante kilder, for at bestemme præcis hvordan oprindelsen fandt sted. Til dette skriver Feigenbaum at: \blockquote{det generelt accepterede synspunkt af Taylors resultater (\dots) er langt mere komplekst end tidligere troet. Efter at have undersøgt Taylors opfattelse af hans eget arbejde, konkluderer jeg, at Taylors opnåede resultater er svarende til den anerkendelse, som han får i dag\footcite[s. 96]{feigenbaum_exact_sciences}}
+Selvom datidens matematikere ofte lod sig inspirere, lære, og til tider plagiere, så kan der argumenteres for, at Taylorpolynomier er opkaldt efter den rette person.
 \section{Analyse} % Kød og kartofler. Brug modellen (introducere citatet, så kommer citatet, og så kommenterer man.
 \subsection{De første led af Taylorpolynomier}
 Man kan opnå en simpel intuitiv forståelse for Taylorpolynomier med følgende fremgangsmåde:\\
-Man ønsker at approksimere en given funktion $f(x)$ fra x-værdien $x_0$. I dette eksempel bruges funktionen $f(x)=e^x$, og $x_0=1$.\\
-\begin{figure}[h!]
+Man ønsker at tilnærme en given funktion $f(x)$ fra x-værdien $x_0$. I dette eksempel bruges funktionen $f(x)=e^x$, og $x_0=1$.
+\begin{figure}[h]
      \includegraphics[width=\textwidth]{figures/ex-eksempel.png}
      \caption{Nulte- første- og andengrads Taylorpolynomium for $e^x$}
      \label{fig:ex-012tpol}
-\end{figure}\\
-Den simpleste approksimation kunne være en konstant funktion, som deler værdi med $f(x)$ på $x_0$ (\textit{Figur \ref{fig:ex-012tpol}, grøn}).
+\end{figure}
+\\Den simpleste approksimation kunne være en konstant funktion, som deler værdi med $f(x)$ på $x_0$ (\textit{Figur \ref{fig:ex-012tpol}, grøn}).
 \[
 f(1)=e
 .\] 
@@ -173,7 +177,7 @@ Den gældende funktion indsættes, og hermed findes funktionens førstegrads Tay
     y&=e+e\cdot (x-1)
 \end{aligned}
 .\] 
-Nu er værdien samt hældningen på $x_0$ korrekt. Dette er ikke en dårlig approksimation for værdier tæt på $x_0$ (se Figur 1.). Vi har i denne process været nødt til at finde den afledte af $f(x)$, det ville derfor kun være muligt med funktioner der er kontinuerte og differentiable omkring $x_0$. \\
+Nu er værdien samt hældningen på $x_0$ korrekt. Dette er ikke en dårlig approksimation for værdier tæt på $x_0$ (se Figur 1.). Vi har i denne proces været nødt til at finde den afledte af $f(x)$, det ville derfor kun være muligt med funktioner der er kontinuerte og differentiable omkring $x_0$. \\
 \\
 For at forbedre approksimationen yderligere, kan man tilføje den korrekte krumning. Dette gøres ved at finde et andengradspolynomium, hvor den anden afledte stemmer overens med den oprindelige funktions anden afledte. Her dukker Taylorpolynomiers egentlige mekanik op, hvilket forstås nemmest vha. næste sektion:
 
@@ -255,7 +259,7 @@ Så vil værdierne af $P_n(x)$ og dets første $n$ afledte funktioner stemme ove
    \end{savenotes} 
 \end{proof}
 \subsection{Taylorpolynomiers restled}
-Når man approksimerer et funktion med dens Taylorpolynomium vil der altid opstå en fejl (udenfor udviklingspunktet $x_0$).\footcite[s. 4]{alsholm1}Til dette har man Taylors formel.\\
+Når man approksimerer et funktion med dens Taylorpolynomium, vil der som regel opstå en fejl (udenfor udviklingpunktet $x_0$)\footcite[s. 4]{alsholm1}.Til dette har man Taylors formel.\\
 Taylors formel giver os muligheden for at approksimere fejlen, og derved vurdere hvilken grad Taylorpolynomiet skal føres til, for at fejlen holder sig indenfor en vis margin. Den giver os også mulighed for at endelig sætte lighedstegn funktionen og Taylors formel, dog med en ekstra ubekendt ($\xi$).\\
 Tætheden som polynomiet $P_n(x)$ approksimerer funktionen $f(x)$ med, måles med differencen:\footcite[s. 650]{calculuswithanalyticgeometry}
 \begin{equation}\label{restled}
@@ -361,9 +365,9 @@ Det kan synes utroligt at man kan approksimere en cosinusfunktion med:
 \begin{equation*}\label{cosiunsanden}
     \cos(\theta)\approx 1-\frac{\theta^2}{2},
 \end{equation*}
-og hvis man ikke kendte til Taylorpolynomier, ville det nok virke en smule arbitrert\footcite{3blue1browntaylor}, men hvor nøjagtigt er det?\\
+og hvis man ikke kendte til Taylorpolynomier, ville det nok virke en smule vilkårligt\footcite{3blue1browntaylor}, men hvor nøjagtigt er det?\\
 Vi kan begynde med at tegne approksimationen på en graf:
-\begin{figure}[h!]
+\begin{figure}[h]
      \includegraphics[width=\textwidth]{figures/cosinuszoom.png}
      \caption{Andengradstaylorpolynomium for $\cos(\theta)$}
      \label{fig:cosinusanden}
@@ -372,9 +376,6 @@ Det er tydeligt på Figur \ref{fig:cosinusanden}. at denne approksimation er god
 \begin{equation*}
     P_2\left(\frac{\pi}{8}\right)=0{,}9228937
 \end{equation*}
-\[
-n=2, a=0, x=\frac{\pi}{8}, \quad a<\xi<x
-.\] 
 Vi kan benytte os af Taylors formel med restled, hvor $n=2$, fordi det er et andengradstaylorpolynomium.  $a=0$, fordi vores udviklingspunkt er 0,  $x=\frac{\pi}{8}$, fordi det er punktet som vi approksimerer, og ifølge Lagrangeformen for restled skal $\xi$ ligge i intervallet $]a;x[$:
 \begin{equation*}
     \begin{aligned}
@@ -400,14 +401,14 @@ For at finde den nøjagtige fejl finder vi blot differencen mellem $P_2(x)$ og $
 \end{equation}
 Vi kan se, at vores maksimale fejl er større end den faktiske fejl, hvilket er som forventet.\\
 \\
-Hvis man skulle bruge denne approksimation til astronomiske parallaksemålinger eller lignende, kan man forestille sig, at det ikke ville væer nok med 2 decimalers garanteret nøjagtighed indenfor en vinkel på $\sfrac{\pi}{8}$. I så fald får vi brug for et større $n$.\\
+Hvis man skulle bruge denne approksimation til astronomiske parallaksemålinger eller lignende, kan man forestille sig, at det ikke ville være nok med 2 decimalers garanteret nøjagtighed indenfor en vinkel på $\sfrac{\pi}{8}$. I så fald får vi brug for et større $n$.\\
 Lad os derfor undersøge og sammenligne den maksimale fejl ved det tilsvarende tredjegradstaylorpolynomium, dog uden alle mellemregningerne, der foregår ligesom første eksempel.
     \begin{align*}
         P_3\left(\frac{\pi}{8}\right)=1-\frac{\pi^2}{128}, \quad \quad R_3\left(\frac{\pi}{8}\right)=\frac{\cos(\xi)\pi^4}{98304}\\
     \end{align*}
-    Her observerer vi et spøjst fenomen. Hvert led i Taylorpolynomiet indeholder en afledt funktion af stigende grad. I dette tilfælde betyder det at hvert led skifter imellem at indeholde en sinusfunktion og en cosinusfunktion. Eftersom vi har valgt udviklingspunkt $a=0$, indeholder hvert andet led $\sin(0)=0$, og forsvinder derfor.\\
+    Her observerer vi et spøjst fænomen. Hvert led i Taylorpolynomiet indeholder en afledt funktion af stigende grad. I dette tilfælde betyder det at hvert led skifter imellem at indeholde en sinusfunktion og en cosinusfunktion. Eftersom vi har valgt udviklingspunkt $a=0$, indeholder hvert andet led $\sin(0)=0$, og forsvinder derfor.\\
     Dette betyder at  $1-\frac{\theta^2}{2}$ er ikke kun det bedste andengradstaylorpolynomium for $\cos(\theta)$, men tilmed det bedste tredjegradstaylorpolynomium for funktionen.\footcite{3blue1browntaylor}\\
-    Restleddet indeholder imidlertid ikke udviklingspunktet, men en variabel  $\xi$, og kan derfor aldrig ignoreres.\\
+    Restleddet indeholder imidlertid ikke udviklingpunktet, men en variabel  $\xi$, og kan derfor aldrig ignoreres.\\
     I dette tilfælde betyder det, at selvom vores approksimation er uændret, kan vi udregne en ny maksimumfejl. Vi skal også være opmærksomme på, at den nye trigonometriske funktion i restleddet nødvendiggør et nyt $\xi$, og da  $\cos(\xi), \text{ hvor }(0\leq \xi \leq \sfrac{8}{\pi})$ har maksimum når $\xi=0$, er dette vores nye værdi for $\xi$:
     \begin{equation*}
        \text{max- } R_{3}(0)=\frac{\cos(0)\pi^4}{98304}\approx 0{,}0009908965
@@ -415,11 +416,11 @@ Lad os derfor undersøge og sammenligne den maksimale fejl ved det tilsvarende t
     Og vi har herved lært, at vores udtryk for $P_3(3)$ er garanteret nøjagtigt til 3 decimaler i intervallet $[0;\sfrac{\pi}{8}]$, (og som udvidelse til $-\sfrac{\pi}{8}$ pga. funktionens symmetri omkring 0). Dette er også meget tæt på den faktiske fejl som vi oplevede i ligning (\ref{faktiskfejl}), hvilket giver mening, eftersom vores $x$-værdi havde den størst mulige afstand fra Taylorpolynomiets udviklingspunkt, indenfor vores valgte interval.\\
 Hvis man er tilfreds med denne fejl, kan man altså trygt se bort fra restleddet. 
 \section{Praktiske anvendelser af Taylorpolynomier}
-I den digitale tidsalders barndom troede man i en periode, at Taylorpolynomier hovedsageligt ville have historisk interresse, men det har vist sig, at kendskab til disse metoder stadig i dag er relevant. Når man sender robotter til Mars, eller undersøger fysiske fenomener på nano-niveau, kræver det kompliceret og præcis matematik, hvor Taylorpolynomier ofte finder sin plads.\footcite[s. 11]{hvadermatematik}\\
+I den digitale tidsalders barndom troede man i en periode, at Taylorpolynomier hovedsageligt ville have historisk interesse, men det har vist sig, at kendskab til disse metoder stadig i dag er relevant. Når man sender robotter til Mars, eller undersøger fysiske fænomener på nano-niveau, kræver det kompliceret og præcis matematik, hvor Taylorpolynomier ofte finder sin plads.\footcite[s. 11]{hvadermatematik}\\
 Det er dog ikke kun studiet af fjerne planeter og små atomer der drager udbytte af denne regnemetode. Taylorpolynomier er også en del af den teori, der danner grund for mange af de elektroniske apparater, som vi bruger hver dag. 
 \subsection{I computervidenskab}
-Taylorpolynomier kan have meget fundamentale anvendelser. Man kan forestille sig en computer der kun kan addere $(+)$, subtrahere $(-)$ og multipicere $(\times)$, men ikke dividere $(\div)$. Ville sådan en computer kunne udregne en brøk?\\
-I dette scenarie kunne man bruge et enkelt Taylorpolynomium. Nemlig Taylorpolynomiet for en geometrisk serie:
+Taylorpolynomier kan have meget fundamentale anvendelser. Man kan forestille sig en computer der kun kan addere $(+)$, subtrahere $(-)$ og multiplicere $(\times)$, men ikke dividere $(\div)$. Ville sådan en computer kunne udregne en brøk?\\
+I dette scenario kunne man bruge et enkelt Taylorpolynomium. Nemlig Taylorpolynomiet for en geometrisk serie:
 \begin{equation*}
     \begin{aligned}
         \frac{1}{1-x}&\approx 1+x+x^2+x^3+\cdots+x^n, \quad |x|<1\\
@@ -434,11 +435,11 @@ Vi kan fx. approksimere $\sfrac{329}{73}$ med denne metode, helt uden at divider
         \frac{329}{73}&\approx 4{,}5068
     \end{aligned}
 \end{equation*}
-I virkeligheden bruger computere dog ikke denne metode. De bruger hurtigere algoritmer så som Goldschmidts eller Newton-Raphsons algoritmer.\footcite{division}, men der er andre problemer der konkret løses med viden, som den der findes i Taylorpolynomier, eksempelvis integralet af \textit{transcendente} funktioner så som $\sin(x), \cos(x), e^x \text{ og } \ln(x)$. Computere drager isér ofte nytte af Taylorpolynomier når de for eksempel i videospil skal udregne trigonometriske funktioner hurtigt og effektivt.\footcite[11]{hvadermatematik}
+I virkeligheden bruger computere dog ikke denne metode. De bruger hurtigere algoritmer så som Goldschmidts eller Newton-Raphsons algoritmer.\footcite{division}, men der er andre problemer der konkret løses med viden, som den der findes i Taylorpolynomier, eksempelvis integralet af \textit{transcendente} funktioner så som $\sin(x), \cos(x), e^x \text{ og } \ln(x)$. Computere drager især ofte nytte af Taylorpolynomier når de for eksempel i videospil skal udregne trigonometriske funktioner hurtigt og effektivt.\footcite[11]{hvadermatematik}
 \subsection{I økonomi}
-Matematikken i økonomi kan også blive svær at have med at gøre, og også her finder Taylorpolynomier andvendelse. et eksempel på dette er \textit{Black-Scholes} formlen, der kan bruges til at udregne prisen for en option på en aktie, hvor Taylorpolynomier tit bruges i formlens implementering, men her er det vigtigt at have indgående kendskab til Taylorpolynomier, for ikke at bruge dem forkert. \footcite{aktier}
+Matematikken i økonomi kan også blive svær at have med at gøre, og også her finder Taylorpolynomier andvendelse. Et eksempel på dette er \textit{Black-Scholes} formlen, der kan bruges til at udregne prisen for en option på en aktie, hvor Taylorpolynomier tit bruges i formlens implementering, men her er det vigtigt at have indgående kendskab til Taylorpolynomier, for ikke at bruge dem forkert. \footcite{aktier}
 \subsection{I fysik}
-Differentialligninger kan være meget svære at have med at gøre, men Taylorpolynomer gør dem nemme. Dette er nyttigt i mange områder af fysik, det kan være når man studerer elektriske felter, når man optimerer fysiske systemer for at studere et equilibrium i en klump atomer, studiet af porøse stenarters elasticitet eller når man man modellerer havbølgers færden over ujævnt terræn\footcite{applicationsoftaylor}\\
+Differentialligninger kan være meget svære at have med at gøre, men Taylorpolynomer gør dem nemme. Dette er nyttigt i mange områder af fysik, det kan være når man studerer elektriske felter, når man optimerer fysiske systemer for at studere et ækvilibrium i en klump atomer, studiet af porøse stenarters elasticitet eller når man man modellerer havbølgers færden over ujævnt terræn\footcite{applicationsoftaylor}\\
 \\
 Taylorpolynomier er altså et fundamentalt matematisk værktøj, og deres anvendelser kan brede sig ud over stort set alle fag, hvor matematik er involveret. Desuden danner de basis for mange af de digitale resurser, som vi tager for givet i vores daglige brug af elektroniske værktøjer.
 
@@ -451,7 +452,7 @@ Jeg har bevist formlen for Taylorrækken, samt undersøgt Taylorpolynomiers rest
 Jeg har så taget eksemplet $f(x)=\cos{(\theta)}$ og analyseret størrelsen af den fejl vi begår ved at se bort fra restleddet.\\
 Til sidst kunne jeg konkludere, at Taylorpolynomier er essentielle for et utal af forskellige emner, og at de i høj grad er relevante i den moderne tidsalder.
 %\textcolor{red}{analiser med konkrete eksempler størrelsen af den fejl vi begår ved at se bort fra restleddet\\}
-%\textcolor{red}{perspektivér ved at overveje praktiske anvendelser af taylorpolynomier}
+%\textcolor{red}{perspektivér ved at overveje praktiske anvendelser af ]synomier}
 \section{Litteraturliste}
 \subsection{Referenceliste}
 \printbibliography[title=Cited]
